@@ -1,6 +1,10 @@
 # parch_on
 frontend de un sitio web dedicado a mostrarnos eventos y lugares para parchar, termino colombiano que se refiere a reunirse con amigos o familiares y  hacer un plan
 
+# Autores:
+-Yeferson Valencia Aristizabal
+-Fabian Hernandez Castaño
+-Jonthan Bernal Arriaga
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
