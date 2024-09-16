@@ -1,0 +1,72 @@
+.register-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('/path/to/your/background-image.jpg'); 
+    background-size: cover;
+    background-position: center;
+  }
+  
+  h1 {
+    color: white;
+    font-size: 3rem; /* Aumenta el tamaño del título */
+    margin-bottom: 2rem;
+  }
+  
+  .register-form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 3rem; /* Más espacio alrededor del formulario */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 450px; /* Aumenta el ancho del formulario */
+  }
+  
+  .register-form input {
+    margin-bottom: 1.5rem;
+    padding: 15px;
+    font-size: 1.2rem; /* Aumenta el tamaño del texto en los inputs */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .btn-register {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 15px 25px; /* Aumenta el tamaño de los botones */
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1.2rem; /* Aumenta el tamaño del texto en los botones */
+    width: 48%;
+  }
+  
+  .btn-register:hover {
+    background-color: #218838;
+  }
+  
+  .btn-cancel {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 25px; /* Aumenta el tamaño de los botones */
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1.2rem; /* Aumenta el tamaño del texto en los botones */
+    width: 48%;
+  }
+  
+  .btn-cancel:hover {
+    background-color: #0056b3;
+  }
+  
