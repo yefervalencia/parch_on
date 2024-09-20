@@ -1,8 +1,12 @@
-export default function Home() {
+import React from "react";
+import { Navbar, Home, Footer } from "@/components";
+
+export default function HomePage() {
   return (
-    <div>
-      <h1>Esta es mi pagina principal
-      </h1>
-    </div>
+    <>
+      <Navbar />
+      <Home />
+      <Footer />
+    </>
   );
 }

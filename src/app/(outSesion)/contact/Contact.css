@@ -1,0 +1,111 @@
+/* Estilos para la página de contacto */
+.contact-page {
+  font-family: 'Arial', sans-serif;
+  background-image: url('/path-to-background-image.jpg');
+  /* Cambia la ruta de la imagen de fondo */
+  background-size: cover;
+  height: 100vh;
+  color: black;
+}
+
+.contact-page .contact-section h2 {
+  color: white;
+}
+
+.contact-page .contact-section p {
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.logo {
+  font-size: 2rem;
+  color: #f06;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+nav ul li {
+  cursor: pointer;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.login,
+.signup {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.signup {
+  background-color: white;
+  color: #f06;
+}
+
+.contact-section {
+  text-align: center;
+  padding: 50px;
+}
+
+.contact-title {
+  font-size: 3rem;
+}
+
+.subtitle {
+  font-style: italic;
+  margin-bottom: 50px;
+}
+
+.contact-form {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 10px;
+  display: inline-block;
+  max-width: 500px;
+  width: 100%;
+  text-align: left;
+}
+
+.contact-form label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.send-button {
+  background-color: #f06;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: #e05;
+}
