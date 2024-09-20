@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #1e1e1e;
+    background-color: transparent;
     padding: 10px 20px;
 }
 
@@ -35,10 +35,9 @@
 .registerBtn {
     margin-left: 10px;
     padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    background-color: #0070f3;
-    color: white;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    color: #fff;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
@@ -46,5 +45,6 @@
 
 .loginBtn:hover,
 .registerBtn:hover {
-    background-color: #005bb5;
+    background-color: #fff;
+    color: #ff0066;
 }

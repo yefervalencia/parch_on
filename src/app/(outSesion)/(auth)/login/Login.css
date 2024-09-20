@@ -1,93 +1,102 @@
 /* Estilos generales */
 .login-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url('/src/app/images/fondo.png'); /* Imagen de fondo */
-    background-size: cover;
-    background-position: center;
-    padding: 20px;
-  }
-  
-  /* Sección de inicios de sesión recientes */
-  .recent-logins {
-    color: white;
-    text-align: left;
-    margin-right: 50px; /* Espacio entre las cuadrículas y el formulario */
-  }
-  
-  .recent-logins h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-  }
-  
-  .recent-logins p {
-    margin-bottom: 20px;
-    font-size: 18px;
-  }
-  
-  /* Estilos de las cuadrículas */
-  .profile-grid {
-    display: flex;
-    gap: 20px; /* Espacio entre las imágenes */
-  }
-  
-  .profile-box {
-    background: white;
-    border-radius: 15px;
-    width: 120px;
-    height: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .profile-box img {
-    width: 60px;
-    height: 60px;
-  }
-  
-  /* Sección del formulario */
-  .login-form {
-    background: white;
-    padding: 40px; /* Más espacio interno para el formulario */
-    border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    width: 400px; /* Hacer el formulario más grande */
-  }
-  
-  .login-form form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .login-form input {
-    margin-bottom: 20px; /* Más espacio entre los inputs */
-    padding: 15px; /* Inputs más grandes */
-    font-size: 18px; /* Texto más grande */
-    border: 1px solid #ccc;
-    border-radius: 8px;
-  }
-  
-  .btn-login {
-    background-color: blue;
-    color: white;
-    padding: 15px;
-    border: none;
-    border-radius: 8px;
-    font-size: 18px;
-    cursor: pointer;
-    margin-bottom: 20px;
-  }
-  
-  .btn-register {
-    background-color: green;
-    color: white;
-    padding: 15px;
-    border: none;
-    border-radius: 8px;
-    font-size: 18px;
-    cursor: pointer;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('/src/app/images/fondo.png');
+  /* Imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+}
+
+/* Sección de inicios de sesión recientes */
+.recent-logins {
+  color: white;
+  text-align: left;
+  margin-right: 50px;
+  /* Espacio entre las cuadrículas y el formulario */
+}
+
+.recent-logins h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.recent-logins p {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #a8a8a8;
+}
+
+/* Estilos de las cuadrículas */
+.profile-grid {
+  display: flex;
+  gap: 20px;
+  /* Espacio entre las imágenes */
+}
+
+.profile-box {
+  background: white;
+  border-radius: 15px;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-box img {
+  width: 100px;
+  height: auto;
+}
+
+/* Sección del formulario */
+.login-form {
+  background: white;
+  padding: 40px;
+  /* Más espacio interno para el formulario */
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  /* Hacer el formulario más grande */
+}
+
+.login-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form input {
+  margin-bottom: 20px;
+  /* Más espacio entre los inputs */
+  padding: 15px;
+  /* Inputs más grandes */
+  font-size: 18px;
+  /* Texto más grande */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.btn-login {
+  background-color: blue;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.btn-register {
+  background-color: green;
+  width: 100%;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+}

@@ -33,6 +33,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: 'Inter', sans-serif;
+  color: #fff;
 }
 
 

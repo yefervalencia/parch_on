@@ -1,8 +1,9 @@
-import './Register.css'; // Asegúrate de crear este archivo para los estilos
+import "./Register.css"; // Asegúrate de crear este archivo para los estilos
 
 export const metadata = {
   title: "Registro de usuario",
-  description: "Regístrate para obtener una cuenta completando el formulario con tu información personal."
+  description:
+    "Regístrate para obtener una cuenta completando el formulario con tu información personal.",
 };
 
 export default function Register() {
@@ -15,8 +16,9 @@ export default function Register() {
         <input type="password" placeholder="Contraseña" required />
         <input type="password" placeholder="Confirmar contraseña" required />
         <div className="buttons">
-          <button type="submit" className="btn-register">Registrarse</button>
-          <button type="button" className="btn-cancel">Cancelar</button>
+          <button type="submit" className="btn-register">
+            Registrarse
+          </button>
         </div>
       </form>
     </div>
