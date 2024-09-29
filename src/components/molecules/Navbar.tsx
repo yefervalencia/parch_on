@@ -10,7 +10,7 @@ export const Navbar = () => {
         <Link href="./">
           <Image
             className="parchon"
-            src="/ParchOn.png"
+            src="/nav-image.png"
             alt="Logo"
             width={80}
             height={80}
@@ -18,9 +18,6 @@ export const Navbar = () => {
         </Link>
       </div>
       <ul className="navLinks">
-        <li>
-          <Link href="./home">Inicio</Link>
-        </li>
         <li>
           <Link href="./about">Nosotros</Link>
         </li>

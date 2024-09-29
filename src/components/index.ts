@@ -1,4 +1,4 @@
-export * from './organisms/Home';
+
 
 export * from './molecules/Navbar';
 export * from './molecules/Footer';

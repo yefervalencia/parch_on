@@ -9,6 +9,7 @@
 .logo {
     display: flex;
     align-items: center;
+    height: auto;
 }
 
 .navLinks {
