@@ -3,10 +3,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background-image: url('/path/to/your/background-image.jpg');
-  background-size: cover;
-  background-position: center;
+  min-height: 100vh;
+  margin-top: 20px;
 }
 
 h1 {
@@ -30,13 +28,26 @@ h1 {
 }
 
 .register-form input {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   padding: 15px;
   font-size: 1.2rem;
   /* Aumenta el tamaño del texto en los inputs */
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 100%;
+  color: #000;
+}
+
+.register-form .input-container {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.register-form span {
+  color: #ff0000;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
 }
 
 .buttons {

@@ -1,14 +1,3 @@
-.layout-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-main {
-    flex: 1; /* Este hará que el main ocupe el espacio restante */
-}
-
-
 .cont-footer {
     width: 100%;
     margin-top: 20px;
