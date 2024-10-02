@@ -1,10 +1,7 @@
 /* Estilos para la página de contacto */
 .contact-page {
   font-family: 'Arial', sans-serif;
-  background-image: url('/path-to-background-image.jpg');
-  /* Cambia la ruta de la imagen de fondo */
   background-size: cover;
-  height: 100vh;
   color: black;
 }
 
