@@ -1,84 +1,11 @@
-"use client";
+import { Metadata } from "next";
+import { Register } from "@/components";
 
-import "./Register.css";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { registerSchema } from "@/validators/registerSchema";
-import { zodResolver } from "@hookform/resolvers/zod";
-
-type Inputs = {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
+export const metadata: Metadata = {
+  title: "Register",
+  description: "Register page",
 };
 
-export default function Register() {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<Inputs>({
-    mode: "all",
-    resolver: zodResolver(registerSchema),
-  });
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    const body = {
-      name: data.name,
-      email: data.email,
-      password: data.password,
-      confirm: data.confirmPassword,
-    };
-    console.log(body);
-  };
-
-  return (
-    <div className="register-page">
-      <h1>Registro</h1>
-      <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
-        <div className="input-container">
-          {errors.name && <span>{errors.name.message}</span>}
-          <input
-            type="text"
-            placeholder="Nombre Completo"
-            {...register("name")}
-          />
-        </div>
-
-        <div className="input-container">
-          {errors.email && <span>{errors.email.message}</span>}
-          <input
-            type="email"
-            placeholder="Correo electrónico"
-            {...register("email")}
-          />
-        </div>
-
-        <div className="input-container">
-          {errors.password && <span>{errors.password.message}</span>}
-          <input
-            type="password"
-            placeholder="Contraseña"
-            {...register("password")}
-          />
-        </div>
-
-        <div className="input-container">
-          {errors.confirmPassword && (
-            <span>{errors.confirmPassword.message}</span>
-          )}
-          <input
-            type="password"
-            placeholder="Confirmar contraseña"
-            {...register("confirmPassword")}
-          />
-        </div>
-        <div className="buttons">
-          <button type="submit" className="btn-register">
-            Registrarse
-          </button>
-        </div>
-      </form>
-    </div>
-  );
+export default function registerPage() {
+  return <Register />;
 }

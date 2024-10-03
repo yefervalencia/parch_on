@@ -1,7 +1,6 @@
 import React from "react";
-import { Navbar, Footer } from "@/components";
+import { Navbar, Footer, Manizales } from "@/components";
 import Link from "next/link";
-import { Manizales } from "../components/atoms/Manizales";
 import "./page.css";
 
 export default function HomePage() {
