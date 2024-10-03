@@ -10,14 +10,12 @@
 h1 {
   color: white;
   font-size: 3rem;
-  /* Aumenta el tamaño del título */
   margin-bottom: 2rem;
 }
 
 .register-form {
   background-color: rgba(255, 255, 255, 0.9);
   padding: 3rem;
-  /* Más espacio alrededor del formulario */
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   display: flex;
@@ -31,7 +29,6 @@ h1 {
   margin-bottom: 0.5rem;
   padding: 15px;
   font-size: 1.2rem;
-  /* Aumenta el tamaño del texto en los inputs */
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 100%;
@@ -56,20 +53,20 @@ h1 {
 }
 
 .btn-register {
-  background-color: #008000;
+  background-color: #008800;
   color: white;
   border: none;
   padding: 15px 25px;
-  /* Aumenta el tamaño de los botones */
   cursor: pointer;
   border-radius: 4px;
   font-size: 1.2rem;
-  /* Aumenta el tamaño del texto en los botones */
   width: 100%;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .btn-register:hover {
-  background-color: #218838;
+  background-color: #006400;
+  transform: scale(1.05);
 }
 
 .btn-cancel {
