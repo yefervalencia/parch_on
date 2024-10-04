@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 import "./layout.css";
 
-export default function OutSesionLayout({
+export default function HomeLayout({
   children,
 }: {
   children: React.ReactNode;
