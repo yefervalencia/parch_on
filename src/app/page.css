@@ -1,9 +1,10 @@
 .manizales-section {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 40px;
   border-radius: 20px;
+  min-height: 100vh;
 }
 
 .manizales-text {
@@ -23,17 +24,33 @@
   margin-bottom: 20px;
 }
 
+.cont-btn {
+  display: flex;
+  justify-content: center;
+}
+
 .cta-button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 5px;
+  background-color: #fff;
+  color: #ff0066;
   cursor: pointer;
+  margin-left: 10px;
+  border: 1px solid #000;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+.cta-button:hover {
+  background-color: #d9d9d9;
 }
 
 .manizales-image img {
   max-width: 500px;
   border-radius: 20px;
+}
+
+.manizales-image:hover {
+  transform: scale(1.05);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
 }
