@@ -1,6 +1,6 @@
 .manizales-section {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 40px;
   border-radius: 20px;
@@ -48,4 +48,9 @@
 .manizales-image img {
   max-width: 500px;
   border-radius: 20px;
+}
+
+.manizales-image:hover {
+  transform: scale(1.05);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
 }

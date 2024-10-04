@@ -93,16 +93,19 @@ nav ul li {
   font-size: 1rem;
 }
 
-.send-button {
+.send-input {
   background-color: #f06;
   color: white;
   border: none;
+  width: 100%;
   padding: 10px 20px;
   font-size: 1rem;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-.send-button:hover {
+.send-input:hover {
   background-color: #e05;
+  transform: scale(1.05);
 }
