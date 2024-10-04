@@ -1,8 +1,6 @@
 /* Estilos para la página de contacto */
 .contact-page {
   font-family: 'Arial', sans-serif;
-  background-image: url('/path-to-background-image.jpg');
-  /* Cambia la ruta de la imagen de fondo */
   background-size: cover;
   height: 100vh;
   color: black;
@@ -14,17 +12,6 @@
 
 .contact-page .contact-section p {
   color: white;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-}
-
-.logo {
-  font-size: 2rem;
-  color: #f06;
 }
 
 nav ul {
@@ -40,21 +27,6 @@ nav ul li {
 .auth-buttons {
   display: flex;
   gap: 15px;
-}
-
-.login,
-.signup {
-  background: transparent;
-  border: 2px solid white;
-  color: white;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.signup {
-  background-color: white;
-  color: #f06;
 }
 
 .contact-section {
@@ -83,7 +55,7 @@ nav ul li {
 
 .contact-form label {
   display: block;
-  margin: 10px 0 5px;
+  margin: 0px;
 }
 
 .contact-form input,
