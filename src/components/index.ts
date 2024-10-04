@@ -9,4 +9,7 @@ export * from './screens/Contact';
 
 // SESSION
 export * from './atoms/DropDown';
+export * from './atoms/EventCard';
+
 export * from './molecules/NavbarS';
+export * from './molecules/EventList';
