@@ -1,6 +1,9 @@
+"use client";
 // components/EventCard.tsx
 import React from "react";
 import Image from "next/image";
+import { Event } from "@/types/api";
+import { useRouter } from "next/navigation";
 
 // Función para convertir hora de 24 hrs a AM/PM
 const formatTimeToAMPM = (time: string) => {
@@ -27,6 +30,7 @@ export const EventCard: React.FC<EventCardProps> = ({
   description,
   imageUrl,
 }) => {
+  const router = useRouter();
   // Convertimos la fecha
   const eventDate = new Date(date + "T00:00:00");
   const day = eventDate.toLocaleDateString("es-CO", { day: "numeric" });
@@ -37,6 +41,12 @@ export const EventCard: React.FC<EventCardProps> = ({
 
   // Convertir la hora a AM/PM
   const formattedTime = formatTimeToAMPM(time);
+
+  // Handler para redirigir con un parámetro adicional
+  const handleViewDetails = () => {
+    // Redirigir a la página de detalles del evento con un dato adicional (por ejemplo, location)
+    router.push(`./events/p45-12}`);
+  };
 
   return (
     <div className="relative w-full flex bg-black text-white rounded-lg shadow-lg overflow-hidden">
@@ -68,8 +78,11 @@ export const EventCard: React.FC<EventCardProps> = ({
           <p className="text-gray-400 text-sm mt-2">{description}</p>
         </div>
         <div className="mt-4 flex justify-between items-center">
-          <button className="bg-[#ff0066] text-white px-4 py-2 rounded-lg hover:bg-[#e6005c] ">
-            View Details →
+          <button
+            onClick={handleViewDetails}
+            className="bg-[#ff0066] text-white px-4 py-2 rounded-lg hover:bg-[#e6005c] "
+          >
+            Ver detalles →
           </button>
           <div className="flex items-center space-x-4">
             <button className="text-gray-500 hover:text-gray-300">
