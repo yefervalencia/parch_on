@@ -20,7 +20,7 @@ export const NavbarS = () => {
   return (
     <nav className="navbar">
       <div className="logo">
-        <Link href="./">
+        <Link href="/home">
           <Image
             className="parchon"
             src="/nav-image.png"
@@ -32,22 +32,22 @@ export const NavbarS = () => {
       </div>
       <ul className="navLinks">
         <li>
-          <Link href="./gallery">Gallery</Link>
+          <Link href="/gallery">Gallery</Link>
         </li>
         <DropDown
           principal="Eventos"
-          link="./events"
+          link="/events"
           items={[
-            { href: "./events", text: "Ver eventos" },
-            { href: "./create-event", text: "Crear evento" },
+            { href: "/events", text: "Ver eventos" },
+            { href: "/create-event", text: "Crear evento" },
           ]}
         />
         <DropDown
           principal="Configuración"
-          link="u/settings"
+          link="/settings"
           items={[
-            { href: "./settings", text: "Configuración" },
-            { href: "./profile", text: "Perfil" },
+            { href: "/settings", text: "Configuración" },
+            { href: "/profile", text: "Perfil" },
           ]}
         />
       </ul>
