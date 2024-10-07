@@ -1,5 +1,5 @@
 import React from 'react';
-import './AboutPage.css'; // Archivo CSS para los estilos
+import './AboutPage.css';
 
 export default function AboutPage() {
   return (
