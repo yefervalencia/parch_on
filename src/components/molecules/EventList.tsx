@@ -3,6 +3,7 @@ import React from "react";
 import { EventCard } from "@/components";
 
 interface Event {
+  id: string;
   title: string;
   date: string;
   time: string;
@@ -39,6 +40,7 @@ export const EventList: React.FC<EventListProps> = ({ events }) => {
             {eventsByYear[year].map((event, index) => (
               <EventCard
                 key={index}
+                id={event.id}
                 title={event.title}
                 date={event.date}
                 time={event.time}
