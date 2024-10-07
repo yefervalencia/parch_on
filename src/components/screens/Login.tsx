@@ -8,6 +8,7 @@ import Image from "next/image";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { loginSchema } from "@/validators/loginSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 //import { AuthContext } from "@/context/AuthContext";
 
 type LoginInputs = {
@@ -17,6 +18,7 @@ type LoginInputs = {
 
 export const Login = () => {
   // const { login } = useContext(AuthContext);
+  const router = useRouter();
 
   const {
     register,
@@ -33,6 +35,8 @@ export const Login = () => {
       password: data.password,
     };
     console.log(body);
+    // Esto es de prueba para redirigir hacia home de usuario Logged
+    router.push("./home");
 
     // Simulación de autenticación
     /*
