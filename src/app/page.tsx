@@ -1,7 +1,13 @@
 import React from "react";
+import type { Metadata } from "next";
 import { Navbar, Footer, Manizales } from "@/components";
 import Link from "next/link";
 import "./page.css";
+
+export const metadata: Metadata = {
+  title: "ParchOn",
+  description: "Home Page",
+};
 
 export default function HomePage() {
   return (

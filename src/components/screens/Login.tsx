@@ -2,12 +2,13 @@
 
 import "./Login.css";
 
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { loginSchema } from "@/validators/loginSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+//import { AuthContext } from "@/context/AuthContext";
 
 type LoginInputs = {
   email: string;
@@ -15,6 +16,8 @@ type LoginInputs = {
 };
 
 export const Login = () => {
+  // const { login } = useContext(AuthContext);
+
   const {
     register,
     handleSubmit,
@@ -25,11 +28,22 @@ export const Login = () => {
   });
 
   const onSubmit: SubmitHandler<LoginInputs> = (data) => {
-    console.log(data);
     const body = {
       email: data.email,
       password: data.password,
     };
+    console.log(body);
+
+    // Simulación de autenticación
+    /*
+    if (
+      data.email === "jisay.2003@gmail.com" &&
+      data.password === "Isayba09!"
+    ) {
+      localStorage.setItem("user", "root");
+      login();
+    }
+      */
   };
 
   return (
