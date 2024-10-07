@@ -33,18 +33,18 @@ export default function AboutPage() {
         <div className="team-members">
           <div className="team-member">
             <img src="https://via.placeholder.com/100" alt="Miembro del equipo" />
-            <h3>Juan Pérez</h3>
-            <p>CEO & Fundador</p>
+            <h3>Fabian Hernandez Castaño</h3>
+            <p>Ingeniero en Sistemas</p>
           </div>
           <div className="team-member">
             <img src="https://via.placeholder.com/100" alt="Miembro del equipo" />
-            <h3>Ana García</h3>
-            <p>CTO</p>
+            <h3>Yeferson Aristizabal Valencia</h3>
+            <p>Ingeniero en Sistemas</p>
           </div>
           <div className="team-member">
             <img src="https://via.placeholder.com/100" alt="Miembro del equipo" />
-            <h3>Carlos López</h3>
-            <p>Gerente de Marketing</p>
+            <h3>Jhonatan</h3>
+            <p>Ingeniero en Sistemas</p>
           </div>
         </div>
       </section>
