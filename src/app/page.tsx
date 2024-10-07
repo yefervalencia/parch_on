@@ -23,7 +23,7 @@ export default function HomePage() {
             Manizales. ¡La ciudad te espera!
           </p>
           <div className="cont-btn">
-            <Link href="/register">
+            <Link href="/login">
               <button className="cta-button">Comenzar</button>{" "}
               {/* Botón añadido */}
             </Link>

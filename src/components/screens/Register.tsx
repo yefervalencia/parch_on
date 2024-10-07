@@ -4,6 +4,7 @@ import "./Register.css";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { registerSchema } from "@/validators/registerSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 
 type Inputs = {
   name: string;
@@ -13,6 +14,8 @@ type Inputs = {
 };
 
 export const Register = () => {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -30,6 +33,7 @@ export const Register = () => {
       confirm: data.confirmPassword,
     };
     console.log(body);
+    router.push(`./home?name=${data.name}`);
   };
 
   return (

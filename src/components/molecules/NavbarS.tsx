@@ -48,6 +48,7 @@ export const NavbarS = () => {
           items={[
             { href: "/settings", text: "Configuración" },
             { href: "/profile", text: "Perfil" },
+            { href: "/", text: "Cerrar sesión" },
           ]}
         />
       </ul>
