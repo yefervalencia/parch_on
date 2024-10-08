@@ -32,7 +32,7 @@ export const NavbarS = () => {
       </div>
       <ul className="navLinks">
         <li>
-          <Link href="/gallery">Gallery</Link>
+          <Link href="/gallery">Gallería</Link>
         </li>
         <DropDown
           principal="Eventos"
@@ -53,7 +53,7 @@ export const NavbarS = () => {
         />
       </ul>
       <div className="search">
-        <input placeholder="Search..." type="text" />
+        <input placeholder="Buscar..." type="text" />
         <span className="search-icon">
           <SearchIcon />
         </span>
