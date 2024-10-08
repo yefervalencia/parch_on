@@ -11,7 +11,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 //import { AuthContext } from "@/context/AuthContext";
 
-type LoginInputs = {
+type Inputs = {
   email: string;
   password: string;
 };
@@ -23,13 +23,14 @@ export const Login = () => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
-  } = useForm<LoginInputs>({
-    mode: "all",
+  } = useForm<Inputs>({
     resolver: zodResolver(loginSchema),
   });
 
-  const onSubmit: SubmitHandler<LoginInputs> = (data) => {
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
     const body = {
       email: data.email,
       password: data.password,
@@ -37,7 +38,6 @@ export const Login = () => {
     console.log(body);
     // Esto es de prueba para redirigir hacia home de usuario Logged
     router.push("./home");
-
     // Simulación de autenticación
     /*
     if (
@@ -95,13 +95,12 @@ export const Login = () => {
           <button type="submit" className="btn-login">
             Iniciar sesión
           </button>
-
-          <Link href="/register">
-            <button type="button" className="btn-register">
-              Registrarse
-            </button>
-          </Link>
         </form>
+        <Link href="/register">
+          <button type="button" className="btn-register">
+            Registrarse
+          </button>
+        </Link>
       </div>
     </div>
   );

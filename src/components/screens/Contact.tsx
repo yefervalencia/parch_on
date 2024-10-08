@@ -20,9 +20,9 @@ export const Contact = () => {
     watch,
     formState: { errors },
   } = useForm<Inputs>({
-    mode: "onBlur",
-    resolver: zodResolver(contactSchema),
+    resolver: zodResolver(contactSchema)
   });
+  
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     const body = {
       user: data.name,
