@@ -66,7 +66,7 @@ export const Register = () => {
       lastname: data.lastName,
       bornDate: data.bornDate,
       cellphone: data.cellphone,
-      city: data.city, //isNaN(Number(data.city)) ? 5 : Number(data.city),
+      city: isNaN(Number(data.city)) ? 5 : Number(data.city),
       };
     console.log(body);
     console.log("Errors:", errors);
