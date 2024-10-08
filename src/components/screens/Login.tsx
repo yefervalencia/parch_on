@@ -2,12 +2,14 @@
 
 import "./Login.css";
 
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { loginSchema } from "@/validators/loginSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+//import { AuthContext } from "@/context/AuthContext";
 
 type Inputs = {
   email: string;
@@ -15,6 +17,9 @@ type Inputs = {
 };
 
 export const Login = () => {
+  // const { login } = useContext(AuthContext);
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -24,12 +29,25 @@ export const Login = () => {
     resolver: zodResolver(loginSchema),
   });
 
+
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     const body = {
       email: data.email,
       password: data.password,
     };
     console.log(body);
+    // Esto es de prueba para redirigir hacia home de usuario Logged
+    router.push("./home");
+    // Simulación de autenticación
+    /*
+    if (
+      data.email === "jisay.2003@gmail.com" &&
+      data.password === "Isayba09!"
+    ) {
+      localStorage.setItem("user", "root");
+      login();
+    }
+      */
   };
 
   return (

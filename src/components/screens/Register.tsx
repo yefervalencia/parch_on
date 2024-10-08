@@ -4,9 +4,12 @@ import "./Register.css";
 import { useForm, SubmitHandler, UseFormRegisterReturn } from "react-hook-form";
 import { registerSchema } from "@/validators/registerSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+
 import { z } from "zod";
 import { useEffect, useState } from "react";
 import { getAllCities } from "@/libs/api";
+import { useRouter } from "next/navigation";
+
 
 /*type Inputs = {
   name: string;
@@ -33,6 +36,8 @@ const user = z.object({
 type User = z.infer<typeof user>;
 
 export const Register = () => {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -70,6 +75,7 @@ export const Register = () => {
       };
     console.log(body);
     console.log("Errors:", errors);
+    //router.push(`./home?name=${data.name}`);
   };
 
   return (
