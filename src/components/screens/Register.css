@@ -35,6 +35,17 @@ h1 {
   color: #000;
 }
 
+.register-form select {
+  margin-bottom: 0.5rem;
+  padding: 15px;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  color: #000;
+}
+
+
 .register-form .input-container {
   margin-bottom: 1.5rem;
   display: flex;

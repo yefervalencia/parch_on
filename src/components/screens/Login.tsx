@@ -9,7 +9,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { loginSchema } from "@/validators/loginSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-type LoginInputs = {
+type Inputs = {
   email: string;
   password: string;
 };
@@ -18,18 +18,18 @@ export const Login = () => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
-  } = useForm<LoginInputs>({
-    mode: "all",
+  } = useForm<Inputs>({
     resolver: zodResolver(loginSchema),
   });
 
-  const onSubmit: SubmitHandler<LoginInputs> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
     const body = {
       email: data.email,
       password: data.password,
     };
+    console.log(body);
   };
 
   return (
@@ -77,13 +77,12 @@ export const Login = () => {
           <button type="submit" className="btn-login">
             Iniciar sesión
           </button>
-
-          <Link href="/register">
-            <button type="button" className="btn-register">
-              Registrarse
-            </button>
-          </Link>
         </form>
+        <Link href="/register">
+          <button type="button" className="btn-register">
+            Registrarse
+          </button>
+        </Link>
       </div>
     </div>
   );
