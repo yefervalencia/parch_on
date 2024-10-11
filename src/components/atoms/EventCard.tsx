@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Event } from "@/types/api";
+//import { Event } from "@/types/DTO/api";
 
 // Función para convertir hora de 24 hrs a AM/PM
 const formatTimeToAMPM = (time: string) => {

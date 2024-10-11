@@ -1,10 +1,10 @@
-export type user={
+export type user = {
+  name: String;
+  lastname: String;
+  email: String;
+  password: String;
   born_date: Date;
   cellphone: String;
-  email:String;
-  lastname: String;
-  name: String;
-  password: String;
   city_id: number;
 }
 

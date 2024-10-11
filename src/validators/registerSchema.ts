@@ -1,12 +1,12 @@
 import { z } from "zod";
 
-// Función para validar que el usuario tenga al menos 18 años
+// Función para validar que el usuario tenga al menos 14 años
 const validateBornDate = (dateString: string) => {
     const today = new Date();
     const birthDate = new Date(dateString);
     let age = today.getFullYear() - birthDate.getFullYear();
     const monthDiff = today.getMonth() - birthDate.getMonth();
-    
+
     // Ajusta la edad si aún no ha sido el cumpleaños este año
     if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
         age--;
@@ -20,8 +20,8 @@ export const registerSchema = z
             .string()
             .min(1, "* El nombre es obligatorio")
             .regex(/^[a-zA-Z\s]+$/, "* El nombre solo puede contener letras y espacios"),
-        
-        lastName: z
+
+        lastname: z
             .string()
             .min(1, "* El apellido es obligatorio")
             .regex(/^[a-zA-Z\s]+$/, "* El apellido solo puede contener letras y espacios"),
@@ -43,24 +43,24 @@ export const registerSchema = z
             .string()
             .min(8, "* Debes confirmar la contraseña"),
 
-        bornDate: z
+        birth: z
             .string()
             .min(1, "* La fecha de nacimiento es obligatoria")
             .refine(validateBornDate, {
                 message: "* Debes ser mayor de 14 años",
             }),
 
-        cellphone: z
+        phone: z
             .string()
             .min(1, "* El número de celular es obligatorio")
             .regex(/^\d{10}$/, "* El número de celular debe tener 10 dígitos")
 
         //city: z
-            //.number({
-                //required_error: "* La ciudad es obligatoria",
-                //invalid_type_error: "* Debes seleccionar una ciudad válida",
-            //})
-            //.int("* El ID de la ciudad debe ser un número entero")
+        //.number({
+        //required_error: "* La ciudad es obligatoria",
+        //invalid_type_error: "* Debes seleccionar una ciudad válida",
+        //})
+        //.int("* El ID de la ciudad debe ser un número entero")
     })
     .refine((data) => data.password === data.confirmPassword, {
         message: "Las contraseñas no coinciden",

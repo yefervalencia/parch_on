@@ -9,6 +9,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { loginSchema } from "@/validators/loginSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
+import { loginUser } from "@/libs/api";
 //import { AuthContext } from "@/context/AuthContext";
 
 type Inputs = {
@@ -17,7 +18,6 @@ type Inputs = {
 };
 
 export const Login = () => {
-  // const { login } = useContext(AuthContext);
   const router = useRouter();
 
   const {
@@ -26,28 +26,23 @@ export const Login = () => {
     watch,
     formState: { errors },
   } = useForm<Inputs>({
+    mode: "all",
     resolver: zodResolver(loginSchema),
   });
 
-
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const body = {
       email: data.email,
       password: data.password,
     };
-    console.log(body);
-    // Esto es de prueba para redirigir hacia home de usuario Logged
-    router.push("./home");
-    // Simulación de autenticación
-    /*
-    if (
-      data.email === "jisay.2003@gmail.com" &&
-      data.password === "Isayba09!"
-    ) {
-      localStorage.setItem("user", "root");
-      login();
+
+    const result = await loginUser(body);
+
+    if (result) {
+      router.push(`/home`);
+    } else {
+      console.error("Error al iniciar sesión");
     }
-      */
   };
 
   return (

@@ -35,6 +35,18 @@ h1 {
   color: #000;
 }
 
+.register-form input[type="date"] {
+  margin-bottom: 0.5rem;
+  padding: 15px;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.9);
+  /* Fondo para coincidir con el resto del formulario */
+}
+
 .register-form select {
   margin-bottom: 0.5rem;
   padding: 15px;
@@ -43,8 +55,8 @@ h1 {
   border-radius: 4px;
   width: 100%;
   color: #000;
+  background-color: rgba(255, 255, 255, 0.9);
 }
-
 
 .register-form .input-container {
   margin-bottom: 1.5rem;
@@ -78,21 +90,4 @@ h1 {
 .btn-register:hover {
   background-color: #006400;
   transform: scale(1.05);
-}
-
-.btn-cancel {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 15px 25px;
-  /* Aumenta el tamaño de los botones */
-  cursor: pointer;
-  border-radius: 4px;
-  font-size: 1.2rem;
-  /* Aumenta el tamaño del texto en los botones */
-  width: 48%;
-}
-
-.btn-cancel:hover {
-  background-color: #0056b3;
 }

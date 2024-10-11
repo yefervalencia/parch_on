@@ -1,33 +1,82 @@
-import { user } from "@/types/socialCityApi"
+import { DTOUser, DTOlogin } from "@/types/DTO/api";
 
-const API = 'http://127.0.0.1:8000'
+const API = 'http://localhost:4000'
 
-export const getAllCities = async () => {
+// Sign up User
+export const registerUser = async (body: DTOUser) => {
   try {
-    const response = await fetch(`${API}/cities`);
-    console.log('Response status:', response.status);
+    const response = await fetch(`${API}/users`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body),
+    });
+
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const rawData = await response.json();
-    console.log('Raw data:', rawData);
-    const data = rawData; 
 
-    return data;
+    const rawData = await response.json();
+    return rawData;
   } catch (error) {
-    console.error('Error fetching cities:', error);
-    return [];
+    console.error('Error registering user:', error);
+    return null;
+  }
+}
+
+export const loginUser = async (body: DTOlogin) => {
+  try {
+    const response = await fetch(`${API}/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(`Error: ${errorData.message}`);
+    }
+
+    const rawData = await response.json();
+    return rawData;
+  } catch (error) {
+    console.error('Error registering user:', error);
+    return null;
   }
 }
 
 
-/*export const getInfoUser = async (body: DtoUser) => {
-  const info = await fetch(`${API}/user`, {
-    method: 'POST',
-    body: JSON.stringify(body)
-  })
-  const rawData = await info.json()
-  const { data } = rawData 
+export const getEvents = async () => {
+  try {
+    const response = await fetch(`${API}/events`);
 
-  return data
-}*/
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const rawData = await response.json();
+    return rawData;
+  } catch (error) {
+    console.error('Error registering user:', error);
+    return null;
+  }
+}
+
+export const getCities = async () => {
+  try {
+    const response = await fetch(`${API}/cities`);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const rawData = await response.json();
+    return rawData;
+  } catch (error) {
+    console.error('Error registering user:', error);
+    return null;
+  }
+}
