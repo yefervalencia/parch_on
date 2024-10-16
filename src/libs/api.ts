@@ -20,7 +20,6 @@ export const registerUser = async (body: DTOUser) => {
     const rawData = await response.json();
     return rawData;
   } catch (error) {
-    console.error('Error registering user:', error);
     return null;
   }
 }
@@ -43,11 +42,9 @@ export const loginUser = async (body: DTOlogin) => {
     const rawData = await response.json();
     return rawData;
   } catch (error) {
-    console.error('Error login user:', error);
     return null;
   }
 }
-
 
 export const getEvents = async () => {
   try {
@@ -60,7 +57,6 @@ export const getEvents = async () => {
     const rawData = await response.json();
     return rawData;
   } catch (error) {
-    console.error('Error registering user:', error);
     return null;
   }
 }
@@ -76,7 +72,6 @@ export const getCities = async () => {
     const rawData = await response.json();
     return rawData;
   } catch (error) {
-    console.error('Error registering user:', error);
     return null;
   }
 }
