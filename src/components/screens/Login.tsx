@@ -2,7 +2,7 @@
 
 import "./Login.css";
 
-import React, { useContext } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -10,7 +10,6 @@ import { loginSchema } from "@/validators/loginSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { loginUser } from "@/libs/api";
-//import { AuthContext } from "@/context/AuthContext";
 
 type Inputs = {
   email: string;
@@ -32,13 +31,13 @@ export const Login = () => {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const body = {
-      email: data.email,
-      password: data.password,
+      ...data,
     };
 
     const result = await loginUser(body);
 
     if (result) {
+      localStorage.setItem("user", "active");
       router.push(`/home`);
     } else {
       console.error("Error al iniciar sesión");

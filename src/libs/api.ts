@@ -43,7 +43,7 @@ export const loginUser = async (body: DTOlogin) => {
     const rawData = await response.json();
     return rawData;
   } catch (error) {
-    console.error('Error registering user:', error);
+    console.error('Error login user:', error);
     return null;
   }
 }

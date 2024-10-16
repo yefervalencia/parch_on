@@ -50,17 +50,20 @@ export const registerSchema = z
                 message: "* Debes ser mayor de 14 años",
             }),
 
+        gender: z
+            .string()
+            .min(1, "* El género es obligatorio")
+            .regex(/^(m|f|o)$/, "* Selección de género no válida"),
+
         phone: z
             .string()
             .min(1, "* El número de celular es obligatorio")
-            .regex(/^\d{10}$/, "* El número de celular debe tener 10 dígitos")
+            .regex(/^\d{10}$/, "* El número de celular debe tener 10 dígitos"),
 
-        //city: z
-        //.number({
-        //required_error: "* La ciudad es obligatoria",
-        //invalid_type_error: "* Debes seleccionar una ciudad válida",
-        //})
-        //.int("* El ID de la ciudad debe ser un número entero")
+        id_city: z
+            .string()
+            .min(1, "* La ciudad es obligatoria")
+            .regex(/^\d+$/, "* Debes seleccionar una ciudad válida"),
     })
     .refine((data) => data.password === data.confirmPassword, {
         message: "Las contraseñas no coinciden",

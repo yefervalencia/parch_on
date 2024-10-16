@@ -29,7 +29,6 @@ export const Register = () => {
     handleSubmit,
     watch,
     formState: { errors },
-    setValue,
   } = useForm<Inputs>({
     mode: "all",
     resolver: zodResolver(registerSchema),
@@ -48,19 +47,14 @@ export const Register = () => {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const body = {
-      name: data.name,
-      lastname: data.lastname,
-      email: data.email,
-      password: data.password,
-      birth: data.birth,
-      gender: data.gender,
-      phone: data.phone,
-      id_city: parseInt(data.id_city),
+      ...data,
+      id_city: parseInt(data.id_city, 10),
     };
 
     const result = await registerUser(body);
 
     if (result) {
+      console.log(body);
       router.push(`/home?name=${data.name}`);
     } else {
       console.error("Error al registrar el usuario");
@@ -135,16 +129,13 @@ export const Register = () => {
 
         <div className="input-container">
           {errors.id_city && <span>{errors.id_city.message}</span>}
-          <select
-            {...register("id_city")}
-            onChange={(e) => setValue("id_city", e.target.value)}
-          >
+          <select {...register("id_city")}>
             <option value="">Seleccione una ciudad</option>
-            {cities.length === 0 ? (
+            {cities === null || cities.length === 0 ? (
               <option disabled>Cargando ciudades...</option>
             ) : (
               cities.map((city) => (
-                <option key={city.id} value={city.id}>
+                <option key={city.id} value={city.id.toString()}>
                   {city.city}
                 </option>
               ))
