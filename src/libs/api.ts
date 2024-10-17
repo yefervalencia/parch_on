@@ -75,3 +75,33 @@ export const getCities = async () => {
     return null;
   }
 }
+
+export const getEventCard = async () => {
+  try {
+    const response = await fetch(`${API}/events/cards`);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const rawData = await response.json();
+    return rawData;
+  } catch (error) {
+    return null;
+  }
+}
+
+export const getEventDetails = async (id: string) => {
+  try {
+    const response = await fetch(`${API}/events/details/${id}`);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const rawData = await response.json();
+    return rawData;
+  } catch (error) {
+    return null;
+  }
+};

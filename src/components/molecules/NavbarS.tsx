@@ -58,6 +58,17 @@ export const NavbarS = () => {
           <SearchIcon />
         </span>
       </div>
+
+      <div className="user-profile">
+        <Image
+          className="profile-image"
+          src="/manizales.jpg"
+          alt="User Profile"
+          width={40}
+          height={40}
+        />
+        <span className="user-name">Jonathan Bernal</span>
+      </div>
     </nav>
   );
 };
