@@ -1,27 +1,53 @@
 "use client";
 
-import { useParams, useSearchParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import Image from "next/image";
 import { ClockIcon, LocationIcon } from "@primer/octicons-react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { getEventDetails } from "@/libs/api";
+import { formatDate, formatTimeToAMPM } from "@/utils/dateUtils";
 
 export default function DetailEvent() {
-  const searchParams = useSearchParams();
+  const { details: id } = useParams();
+  const [event, setEvent] = useState<null | {
+    event: string;
+    details: string;
+    date: string;
+    time: string;
+    image: string;
+    place: { place: string };
+  }>(null);
 
-  const { id } = useParams();
-  const day = searchParams.get("day");
-  const month = searchParams.get("month");
-  const title = searchParams.get("title");
-  const time = searchParams.get("time");
-  const location = searchParams.get("location");
-  const imageUrl = "/det.png";
+  useEffect(() => {
+    if (id) {
+      const eventId = Array.isArray(id) ? id[0] : id;
+      getEventDetails(eventId).then((data) => {
+        if (data) {
+          setEvent(data);
+        }
+      });
+    }
+  }, [id]);
+
+  if (!event) return <p>Loading...</p>;
+
+  const { event: title, details, date, time, image, place } = event;
+  const { place: location } = place;
+
+  // Función para convertir hora de 24 hrs a AM/PM
+  const { day, month } = formatDate(date);
+  const formattedTime = formatTimeToAMPM(time);
+
+  // Separar el texto por saltos de línea para crear párrafos
+  const detailParagraphs = details.split("\r\n\r\n");
 
   return (
     <div className="p-10 min-h-screen bg-black/90">
       <div className="flex justify-center mt-2 w-full">
         <div className="relative w-3/4 h-96">
           <Image
-            src={imageUrl}
+            src={image}
             alt="Event image"
             layout="fill"
             objectFit="cover"
@@ -41,7 +67,7 @@ export default function DetailEvent() {
         <div className="text-white text-xl mb-4 flex items-center space-x-4">
           <div className="flex items-center space-x-2">
             <ClockIcon size={24} />
-            <span className="font-bold">{time}</span>
+            <span className="font-bold">{formattedTime}</span>
           </div>
           <div className="flex items-center space-x-2">
             <LocationIcon size={24} />
@@ -60,26 +86,11 @@ export default function DetailEvent() {
         </div>
 
         <div className="mt-8 text-white w-3/4 text-xl">
-          <p className="mb-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            interdum tincidunt tortor, vel feugiat libero efficitur ac.
-            Curabitur consectetur, leo a fringilla convallis, erat nisi
-            tincidunt arcu, ac tincidunt nulla nunc a augue. Sed placerat ut
-            massa sed bibendum.
-          </p>
-          <p className="mb-4">
-            Integer vehicula diam eget arcu lacinia, ac molestie erat semper.
-            Vestibulum blandit magna sit amet justo tincidunt, non aliquam eros
-            vestibulum. Pellentesque habitant morbi tristique senectus et netus
-            et malesuada fames ac turpis egestas. Sed vitae dui nec quam
-            consectetur ultricies.
-          </p>
-          <p className="mb-4">
-            Suspendisse potenti. Phasellus eget libero nec magna bibendum
-            sodales non a ligula. Ut nec tortor at lorem vestibulum feugiat. Ut
-            a tincidunt nulla. Nulla facilisi. Phasellus tincidunt elit ut magna
-            ultrices, in vulputate eros vehicula.
-          </p>
+          {detailParagraphs.map((paragraph, index) => (
+            <p key={index} className="mb-4">
+              {paragraph}
+            </p>
+          ))}
         </div>
       </div>
     </div>

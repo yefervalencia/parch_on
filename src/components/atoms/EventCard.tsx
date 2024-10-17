@@ -3,53 +3,35 @@
 import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-//import { Event } from "@/types/DTO/api";
-
-// Función para convertir hora de 24 hrs a AM/PM
-const formatTimeToAMPM = (time: string) => {
-  const [hour, minutes] = time.split(":").map(Number);
-  const ampm = hour >= 12 ? "PM" : "AM";
-  const formattedHour = hour % 12 || 12; // Convierte 0 a 12 para medianoche
-  return `${formattedHour}:${minutes < 10 ? `0${minutes}` : minutes} ${ampm}`;
-};
+import { formatDate, formatTimeToAMPM } from "@/utils/dateUtils";
 
 interface EventCardProps {
   id: string;
-  title: string;
+  event: string;
   date: string;
   time: string;
   location: string;
   description: string;
-  imageUrl: string;
+  image: string;
 }
 
 export const EventCard: React.FC<EventCardProps> = ({
   id,
-  title,
+  event,
   date,
   time,
   location,
   description,
-  imageUrl,
+  image,
 }) => {
   const router = useRouter();
-  // Convertimos la fecha
-  const eventDate = new Date(date + "T00:00:00");
-  const day = eventDate.toLocaleDateString("es-CO", { day: "numeric" });
-  const month = eventDate
-    .toLocaleDateString("es-CO", { month: "short" })
-    .toUpperCase();
-  const year = eventDate.getFullYear();
-
-  // Convertir la hora a AM/PM
+  // Función para convertir hora de 24 hrs a AM/PM
+  const { day, month } = formatDate(date);
   const formattedTime = formatTimeToAMPM(time);
 
   // Handler para redirigir con un parámetro adicional
   const handleViewDetails = () => {
-    // Redirigir a la página de detalles del evento con un dato adicional (por ejemplo, location)
-    router.push(
-      `./events/${id}?day=${day}&month=${month}&title=${title}&time=${formattedTime}&location=${location}`
-    );
+    router.push(`/events/${id}`);
   };
 
   return (
@@ -57,7 +39,7 @@ export const EventCard: React.FC<EventCardProps> = ({
       {/* Contenedor para la imagen */}
       <div className="relative w-1/3 h-64">
         <Image
-          src={imageUrl}
+          src={image}
           alt="Event image"
           layout="fill"
           objectFit="cover"
@@ -78,7 +60,7 @@ export const EventCard: React.FC<EventCardProps> = ({
             <span>{location}</span>
             <span className="text-sm">{formattedTime}</span>
           </div>
-          <h2 className="text-2xl font-bold">{title}</h2>
+          <h2 className="text-2xl font-bold">{event}</h2>
           <p className="text-gray-400 text-sm mt-2">{description}</p>
         </div>
         <div className="mt-4 flex justify-between items-center">

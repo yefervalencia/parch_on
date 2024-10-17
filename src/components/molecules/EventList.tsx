@@ -1,22 +1,36 @@
+"use client";
 // components/EventList.tsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { EventCard } from "@/components";
+import { getEventCard } from "@/libs/api";
 
 interface Event {
   id: string;
-  title: string;
+  event: string;
   date: string;
   time: string;
   location: string;
   description: string;
-  imageUrl: string;
+  image: string;
+  place: {
+    place: string;
+    address: string;
+  };
 }
 
-interface EventListProps {
-  events: Event[];
-}
+export const EventList: React.FC = () => {
+  const [events, setEvents] = useState<Event[]>([]);
 
-export const EventList: React.FC<EventListProps> = ({ events }) => {
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const eventData = await getEventCard();
+      if (eventData) {
+        setEvents(eventData);
+      }
+    };
+    fetchEvents();
+  }, []);
+
   // Agrupar los eventos por año
   const eventsByYear = events.reduce(
     (acc: { [key: string]: Event[] }, event) => {
@@ -41,12 +55,12 @@ export const EventList: React.FC<EventListProps> = ({ events }) => {
               <EventCard
                 key={index}
                 id={event.id}
-                title={event.title}
+                event={event.event}
                 date={event.date}
                 time={event.time}
-                location={event.location}
+                location={event.place.place}
                 description={event.description}
-                imageUrl={event.imageUrl}
+                image={event.image}
               />
             ))}
           </div>
