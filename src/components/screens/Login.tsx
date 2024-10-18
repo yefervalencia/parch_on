@@ -37,7 +37,6 @@ export const Login = () => {
     const result = await loginUser(body);
 
     if (result) {
-      localStorage.setItem("user", "active");
       router.push(`/home`);
     } else {
       console.error("Error al iniciar sesión");
