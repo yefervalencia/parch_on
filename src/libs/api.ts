@@ -105,3 +105,22 @@ export const getEventDetails = async (id: string) => {
     return null;
   }
 };
+
+export const fetchUserData = async (userId: number) => {
+  const response = await fetch(`${API}/${userId}`);
+  if (!response.ok) {
+    throw new Error('Error fetching user data');
+  }
+  return response.json();
+};
+
+export const updateUserData = async (userId: number, updatedUser: any) => {
+  return fetch(`${API}/users/${userId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(updatedUser),
+  })
+  .then(res => {console.log(res); return res.json()});
+};
