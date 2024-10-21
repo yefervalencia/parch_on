@@ -1,4 +1,5 @@
 import { DTOUser, DTOlogin } from "@/types/DTO/api";
+import { jwtDecode } from "jwt-decode";
 
 const API = 'http://localhost:4000'
 
@@ -32,6 +33,7 @@ export const loginUser = async (body: DTOlogin) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(body),
+      credentials: 'include',
     });
 
     if (!response.ok) {
@@ -43,6 +45,79 @@ export const loginUser = async (body: DTOlogin) => {
     return rawData;
   } catch (error) {
     return null;
+  }
+}
+
+export const logoutUser = async () => {
+  try {
+    const response = await fetch(`${API}/logout`, {
+      method: "POST",
+      credentials: "include", // Asegúrate de incluir las credenciales para que la cookie se borre
+    });
+    if (!response.ok) {
+      throw new Error("Logout failed");
+    }
+  } catch (error) {
+    console.error("Error logging out:", error);
+  }
+}
+
+export const getUserById = async () => {
+  try {
+    const response = await fetch(`${API}/users/1`)
+
+    // Verificar si la respuesta fue exitosa
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(`Error: ${errorData.message}`);
+    }
+
+    // Obtener los datos de usuario
+    const rawData = await response.json();
+    return rawData;
+  } catch (error) {
+    return null;
+  }
+}
+
+export const getUserByCookie = async () => {
+  try {
+    const response = await fetch(`${API}/users/cookie`, {
+      method: "POST",
+      credentials: "include"
+    })
+
+    // Verificar si la respuesta fue exitosa
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(`Error: ${errorData.message}`);
+    }
+
+    // Obtener los datos de usuario
+    const rawData = await response.json();
+    return rawData;
+  } catch (error) {
+    return null;
+  }
+}
+
+export const getCookieExists = async () => {
+  try {
+    const response = await fetch(`${API}/cookie`, {
+      credentials: "include"
+    })
+
+    // Verificar si la respuesta fue exitosa
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(`Error: ${errorData.message}`);
+    }
+
+    // Obtener los datos de usuario
+    const rawData = await response.json();
+    return rawData;
+  } catch (error) {
+    return { isAuthenticated: false };
   }
 }
 

@@ -13,7 +13,9 @@ export default function HomeLayout({
   const pathname = usePathname();
   return (
     <>
-      {pathname !== "/login" && pathname !== "/register" && <Navbar />}
+      {pathname !== "/login" &&
+        pathname !== "/register" &&
+        pathname !== "/protected" && <Navbar />}
       <main>{children}</main>
       <Footer />
     </>
