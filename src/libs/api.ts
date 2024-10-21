@@ -48,6 +48,20 @@ export const loginUser = async (body: DTOlogin) => {
   }
 }
 
+export const logoutUser = async () => {
+  try {
+    const response = await fetch(`${API}/logout`, {
+      method: "POST",
+      credentials: "include", // Asegúrate de incluir las credenciales para que la cookie se borre
+    });
+    if (!response.ok) {
+      throw new Error("Logout failed");
+    }
+  } catch (error) {
+    console.error("Error logging out:", error);
+  }
+}
+
 export const getUserById = async () => {
   try {
     const response = await fetch(`${API}/users/1`)
@@ -68,7 +82,10 @@ export const getUserById = async () => {
 
 export const getUserByCookie = async () => {
   try {
-    const response = await fetch(`${API}/users/cookie`)
+    const response = await fetch(`${API}/users/cookie`, {
+      method: "POST",
+      credentials: "include"
+    })
 
     // Verificar si la respuesta fue exitosa
     if (!response.ok) {
@@ -86,7 +103,9 @@ export const getUserByCookie = async () => {
 
 export const getCookieExists = async () => {
   try {
-    const response = await fetch(`${API}/cookie`)
+    const response = await fetch(`${API}/cookie`, {
+      credentials: "include"
+    })
 
     // Verificar si la respuesta fue exitosa
     if (!response.ok) {
@@ -98,7 +117,7 @@ export const getCookieExists = async () => {
     const rawData = await response.json();
     return rawData;
   } catch (error) {
-    return null;
+    return { isAuthenticated: false };
   }
 }
 

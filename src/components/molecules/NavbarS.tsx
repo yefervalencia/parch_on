@@ -5,9 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { SearchIcon } from "@primer/octicons-react";
 import { DropDown } from "@/components";
-import { getUserById } from "@/libs/api";
+import { getUserByCookie, logoutUser } from "@/libs/api";
 
 import "./NavbarS.css";
+import { useRouter } from "next/navigation";
 
 // Interfaz para el payload del JWT
 interface JwtPayload {
@@ -19,6 +20,7 @@ interface JwtPayload {
 }
 
 export const NavbarS = () => {
+  const router = useRouter();
   // State para controlar si el menú desplegable está abierto
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [userName, setUserName] = useState("");
@@ -33,7 +35,7 @@ export const NavbarS = () => {
     const fetchUserData = async () => {
       try {
         // Obtener los datos del usuario a través de la función getUserByCookie
-        const userData = await getUserById();
+        const userData = await getUserByCookie();
 
         console.log(userData);
 
@@ -50,6 +52,12 @@ export const NavbarS = () => {
 
     fetchUserData();
   }, []);
+
+  // Función para manejar el cierre de sesión
+  const handleLogout = async () => {
+    await logoutUser();
+    router.push("/"); // Redirige al usuario a la página de inicio después de cerrar sesión
+  };
 
   return (
     <nav className="navbar">
@@ -82,7 +90,7 @@ export const NavbarS = () => {
           items={[
             { href: "/settings", text: "Configuración" },
             { href: "/profile", text: "Perfil" },
-            { href: "/", text: "Cerrar sesión" },
+            { href: "#", onClick: handleLogout, text: "Cerrar sesión" },
           ]}
         />
       </ul>

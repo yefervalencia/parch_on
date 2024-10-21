@@ -7,7 +7,7 @@ import "./DropDown.css";
 interface DropDownProps {
   principal: string; // Texto del menú principal
   link: string;
-  items: Array<{ href: string; text: string }>; // Array con los href y el texto de las subopciones
+  items: Array<{ href: string; text: string; onClick?: () => void }>; // Array con los href y el texto de las subopciones
 }
 
 export const DropDown: React.FC<DropDownProps> = ({
@@ -34,7 +34,9 @@ export const DropDown: React.FC<DropDownProps> = ({
         <ul className="dropdownMenu">
           {items.map((item, index) => (
             <li key={index}>
-              <Link href={item.href}>{item.text}</Link>
+              <Link href={item.href} onClick={item.onClick}>
+                {item.text}
+              </Link>
             </li>
           ))}
         </ul>
