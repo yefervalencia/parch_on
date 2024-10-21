@@ -9,9 +9,10 @@ export const registerUser = async (body: DTOUser) => {
     const response = await fetch(`${API}/users`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(body),
+      credentials: 'include'
     });
 
     if (!response.ok) {
@@ -197,5 +198,5 @@ export const updateUserData = async (userId: number, updatedUser: any) => {
     },
     body: JSON.stringify(updatedUser),
   })
-  .then(res => {console.log(res); return res.json()});
+    .then(res => { console.log(res); return res.json() });
 };
