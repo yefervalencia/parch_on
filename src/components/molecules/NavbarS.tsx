@@ -6,7 +6,7 @@ import Link from "next/link";
 import { SearchIcon } from "@primer/octicons-react";
 import { DropDown } from "@/components";
 import { getUserByCookie, logoutUser } from "@/libs/api";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "react-i18next";
 
 import "./NavbarS.css";
 import { useRouter } from "next/navigation";
@@ -71,6 +71,7 @@ export const NavbarS = () => {
             alt="Logo"
             width={80}
             height={80}
+            priority={true}
           />
         </Link>
       </div>
@@ -88,7 +89,7 @@ export const NavbarS = () => {
         />
       </ul>
       <div className="search">
-        <input placeholder={t("search")} type="text" />
+        <input name="search" placeholder={t("search")} type="text" />
         <span className="search-icon">
           <SearchIcon />
         </span>
