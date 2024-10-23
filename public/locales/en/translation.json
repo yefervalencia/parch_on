@@ -1,0 +1,13 @@
+{
+  "language": "Language",
+  "theme": "Theme",
+  "selectLanguage": "Select Language",
+  "gallery": "Gallery",
+  "events": "Events",
+  "viewEvents": "View events",
+  "createEvent": "Create event",
+  "settings": "Settings",
+  "profile": "Profile",
+  "logout": "Log out",
+  "search": "Search"
+}

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 // Define the routes to be protected
-const userProtectedRoutes = ['/protected', '/agenda', '/events', '/home', '/profile', '/reviews', '/tickets'];
+const userProtectedRoutes = ['/protected', '/agenda', '/events', '/home', '/profile', '/reviews', '/settings', '/tickets'];
 const guestProtectedRoutes = ['/', '/login', '/register', '/about', '/contact', '/FAQ', '/testimonies'];
 
 export function middleware(request: NextRequest) {
@@ -49,6 +49,7 @@ export const config = {
         '/events/:path*',
         '/profile/:path*',
         '/reviews/:path*',
+        '/settings/:path*',
         '/tickets/:path*',
         '/',
         '/login/:path*',
