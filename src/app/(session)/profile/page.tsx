@@ -1,32 +1,17 @@
-"use client"; 
+"use client";
 
-import { updateUserData } from '@/libs/api';
-import React, { useEffect, useState } from 'react';
-import styles from './Profile.module.css';
+import { updateUserData } from "@/libs/api";
+import React, { useEffect, useState } from "react";
+import styles from "./Profile.module.css";
 
 const fetchUserData = async () => {
-  const response = await fetch('http://localhost:4000/users/1'); 
+  const response = await fetch("http://localhost:4000/users/1");
   if (!response.ok) {
-    throw new Error('Error fetching user data');
+    throw new Error("Error fetching user data");
   }
   return response.json();
 };
-/*
-const updateUserData = async (updatedUser: any) => {
-  const response = await fetch('http://localhost:4000/users/1', {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(updatedUser),
-  });
 
-  if (!response.ok) {
-    throw new Error('Error updating user data');
-  }
-  return response.json();
-};
-*/
 export default function Profile() {
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -36,12 +21,12 @@ export default function Profile() {
 
   useEffect(() => {
     fetchUserData()
-      .then(data => {
+      .then((data) => {
         setUser(data);
         setEditedUser(data);
         setLoading(false);
       })
-      .catch(err => {
+      .catch((err) => {
         setError(err.message);
         setLoading(false);
       });
@@ -53,13 +38,12 @@ export default function Profile() {
 
   const handleCancel = () => {
     setIsEditing(false);
-    console.log('Cancelado', isEditing);
-    
+    console.log("Cancelado", isEditing);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;    
-    setEditedUser({ ...editedUser, [name]: value }); 
+    const { name, value } = e.target;
+    setEditedUser({ ...editedUser, [name]: value });
   };
 
   const handleSave = () => {
@@ -69,30 +53,28 @@ export default function Profile() {
       lastname: editedUser.lastname,
       email: editedUser.email,
       phone: editedUser.phone,
-    }
+    };
 
     if (newEdited.name === user.name) delete newEdited.name;
     if (newEdited.lastname === user.lastname) delete newEdited.lastname;
     if (newEdited.email === user.email) delete newEdited.email;
     if (newEdited.phone === user.phone) delete newEdited.phone;
-    if (Object.keys(newEdited).length > 0){
+    if (Object.keys(newEdited).length > 0) {
       updateUserData(editedUser.id, newEdited)
         .then((updatedData) => {
-          console.log(updatedData)
-          setUser(updatedData); 
+          console.log(updatedData);
+          setUser(updatedData);
           setIsEditing(false);
           setLoading(false);
         })
         .catch((err) => {
           console.log(err);
-          
+
           setError(err.message);
           setLoading(false);
         });
-      };
     }
-    
-    
+  };
 
   return (
     <div className={styles.container}>
@@ -104,11 +86,21 @@ export default function Profile() {
           <h2 className={styles.title}>Información Personal</h2>
           {!isEditing ? (
             <>
-              <p className={styles.userData}><strong>Nombre:</strong> {user.name}</p>
-              <p className={styles.userData}><strong>Apellido:</strong> {user.lastname}</p>
-              <p className={styles.userData}><strong>Email:</strong> {user.email}</p>
-              <p className={styles.userData}><strong>Teléfono:</strong> {user.phone}</p>
-              <button onClick={handleEdit} className={styles.editButton}>Editar</button>
+              <p className={styles.userData}>
+                <strong>Nombre:</strong> {user.name}
+              </p>
+              <p className={styles.userData}>
+                <strong>Apellido:</strong> {user.lastname}
+              </p>
+              <p className={styles.userData}>
+                <strong>Email:</strong> {user.email}
+              </p>
+              <p className={styles.userData}>
+                <strong>Teléfono:</strong> {user.phone}
+              </p>
+              <button onClick={handleEdit} className={styles.editButton}>
+                Editar
+              </button>
             </>
           ) : (
             <>
@@ -140,8 +132,12 @@ export default function Profile() {
                 value={editedUser.phone}
                 onChange={handleInputChange}
               />
-              <button onClick={handleSave} className={styles.saveButton}>Guardar</button>
-              <button onClick={handleCancel} className={styles.editButton}>Cancelar</button>
+              <button onClick={handleSave} className={styles.saveButton}>
+                Guardar
+              </button>
+              <button onClick={handleCancel} className={styles.editButton}>
+                Cancelar
+              </button>
             </>
           )}
         </div>

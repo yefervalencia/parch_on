@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import "./DropDown.css";
+import { useTranslation } from "next-i18next";
 
 interface DropDownProps {
   principal: string; // Texto del menú principal
@@ -15,6 +16,7 @@ export const DropDown: React.FC<DropDownProps> = ({
   link,
   items,
 }) => {
+  const { t } = useTranslation();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   // Función para alternar el menú desplegable
@@ -28,14 +30,14 @@ export const DropDown: React.FC<DropDownProps> = ({
       onMouseEnter={toggleDropdown}
       onMouseLeave={toggleDropdown}
     >
-      <Link href={link}>{principal}</Link>
+      <Link href={link}>{t(principal)}</Link>
 
       {isDropdownOpen && (
         <ul className="dropdownMenu">
           {items.map((item, index) => (
             <li key={index}>
               <Link href={item.href} onClick={item.onClick}>
-                {item.text}
+                {t(item.text)}
               </Link>
             </li>
           ))}

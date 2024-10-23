@@ -13,3 +13,5 @@ export * from './atoms/EventCard';
 
 export * from './molecules/NavbarS';
 export * from './molecules/EventList';
+export * from './molecules/GalleryImage';
+export * from './molecules/SettingsMenu';

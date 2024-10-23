@@ -63,9 +63,9 @@ export const logoutUser = async () => {
   }
 }
 
-export const getUserById = async () => {
+export const getUserById = async (id: string) => {
   try {
-    const response = await fetch(`${API}/users/1`)
+    const response = await fetch(`${API}/users/${id}`)
 
     // Verificar si la respuesta fue exitosa
     if (!response.ok) {
