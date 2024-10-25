@@ -1,5 +1,6 @@
 import { DTOUser, DTOlogin } from "@/types/DTO/api";
 import { jwtDecode } from "jwt-decode";
+import Cookies from 'js-cookie';
 
 const API = 'http://localhost:4000'
 
@@ -43,6 +44,9 @@ export const loginUser = async (body: DTOlogin) => {
     }
 
     const rawData = await response.json();
+    const token = rawData.token;
+    localStorage.setItem("authToken", token);
+
     return rawData;
   } catch (error) {
     return null;
