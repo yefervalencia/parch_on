@@ -9,5 +9,7 @@
   "settings": "Paramètres",
   "profile": "Profil",
   "logout": "Déconnexion",
-  "search": "Recherche"
+  "search": "Recherche",
+  "welcomeMessage": "Bienvenue {{name}}",
+  "gladMessage": "Nous sommes heureux de vous avoir ici."
 }

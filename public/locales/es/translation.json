@@ -9,5 +9,7 @@
   "settings": "Configuración",
   "profile": "Perfil",
   "logout": "Cerrar sesión",
-  "search": "Buscar"
+  "search": "Buscar",
+  "welcomeMessage": "Bienvenido {{name}}",
+  "gladMessage": "Nos alegra tenerte aquí."
 }

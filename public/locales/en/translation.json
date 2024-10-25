@@ -9,5 +9,7 @@
   "settings": "Settings",
   "profile": "Profile",
   "logout": "Log out",
-  "search": "Search"
+  "search": "Search",
+  "welcomeMessage": "Welcome {{name}}",
+  "gladMessage": "We are glad to have you here."
 }
