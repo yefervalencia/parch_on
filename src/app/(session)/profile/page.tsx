@@ -1,15 +1,30 @@
 "use client";
 
-import { updateUserData } from "@/libs/api";
+import { updateUserData, getUserByCookie } from "@/libs/api";
 import React, { useEffect, useState } from "react";
 import styles from "./Profile.module.css";
+const jwt_decode = require("jwt-decode"); // Usar require en vez de import
+import Cookies from 'js-cookie';
 
 const fetchUserData = async () => {
-  const response = await fetch("http://localhost:4000/users/1");
-  if (!response.ok) {
-    throw new Error("Error fetching user data");
+  try {
+    // Obtener los datos del usuario a través de la función getUserByCookie
+    const userData = await getUserByCookie();
+
+    if (userData) {
+      const response = await fetch(`http://localhost:4000/users/${userData.id}`, {
+        method: 'GET', // Método de la petición
+        headers: {
+          'Content-Type': 'application/json', // Puedes agregar otros headers si es necesario
+        },
+        credentials: 'include', // Para incluir las cookies
+      });
+
+      return response.json();
+    }
+  } catch (error) {
+    console.error("Error fetching user data:", error);
   }
-  return response.json();
 };
 
 export default function Profile() {
