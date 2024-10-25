@@ -2,8 +2,10 @@
 
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next"; // Importa el hook para traducción
 
 export default function HomePage() {
+  const { t } = useTranslation(); // Hook de traducción
   const searchParams = useSearchParams();
   const name = searchParams.get("name");
 
@@ -22,14 +24,14 @@ export default function HomePage() {
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          Bienvenido {name}
+          {t('welcomeMessage', { name })} {/* Traducción del mensaje de bienvenida */}
         </h1>
         <p
           className={`text-xl text-gray-200 transition-opacity duration-1000 delay-300 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          Nos alegra tenerte aquí.
+          {t('gladMessage')} {/* Traducción del mensaje de agrado */}
         </p>
       </div>
     </div>
