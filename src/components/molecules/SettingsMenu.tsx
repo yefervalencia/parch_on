@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { GlobeIcon, SunIcon } from "@primer/octicons-react";
-import { useTranslation, UseTranslation } from "next-i18next";
+import { useTranslation } from "react-i18next";
 
 const menuItems = [
   {
