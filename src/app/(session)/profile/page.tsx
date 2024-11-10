@@ -66,14 +66,13 @@ export default function Profile() {
     const newEdited = {
       name: editedUser.name,
       lastname: editedUser.lastname,
-      email: editedUser.email,
       phone: editedUser.phone,
     };
 
     if (newEdited.name === user.name) delete newEdited.name;
     if (newEdited.lastname === user.lastname) delete newEdited.lastname;
-    if (newEdited.email === user.email) delete newEdited.email;
     if (newEdited.phone === user.phone) delete newEdited.phone;
+
     if (Object.keys(newEdited).length > 0) {
       updateUserData(editedUser.id, newEdited)
         .then((updatedData) => {
@@ -84,7 +83,6 @@ export default function Profile() {
         })
         .catch((err) => {
           console.log(err);
-
           setError(err.message);
           setLoading(false);
         });
@@ -134,11 +132,11 @@ export default function Profile() {
                 onChange={handleInputChange}
               />
               <input
-                className={styles.input}
+                className={`${styles.input} ${styles.txtButton}`}
                 type="email"
                 name="email"
                 value={editedUser.email}
-                onChange={handleInputChange}
+                readOnly
               />
               <input
                 className={styles.input}
