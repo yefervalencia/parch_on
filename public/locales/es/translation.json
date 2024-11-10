@@ -11,5 +11,8 @@
   "logout": "Cerrar sesión",
   "search": "Buscar",
   "welcomeMessage": "Bienvenido {{name}}",
-  "gladMessage": "Nos alegra tenerte aquí."
+  "gladMessage": "Nos alegra tenerte aquí.",
+  "loading": "Cargando...",
+  "eventImageAlt": "Imagen del evento",
+  "buyTickets": "Comprar tickets"
 }

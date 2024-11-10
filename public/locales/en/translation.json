@@ -11,5 +11,8 @@
   "logout": "Log out",
   "search": "Search",
   "welcomeMessage": "Welcome {{name}}",
-  "gladMessage": "We are glad to have you here."
+  "gladMessage": "We are glad to have you here.",
+  "loading": "Loading...",
+  "eventImageAlt": "Event image",
+  "buyTickets": "Buy tickets"
 }
