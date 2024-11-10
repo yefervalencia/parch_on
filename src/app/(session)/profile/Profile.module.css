@@ -1,8 +1,8 @@
 .container {
   padding: 30px;
-  background-color: transparent; /* Fondo transparente */
-  color: #fff; /* Texto en blanco para contraste */
-  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  background-color: transparent;
+  color: #fff;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +10,7 @@
 }
 
 .header {
-  font-size: 2.4rem; /* Tamaño de fuente más grande */
+  font-size: 2.4rem;
   text-align: center;
   margin-bottom: 30px;
   color: #fff;
@@ -22,12 +22,12 @@
 }
 
 .card {
-  background-color: rgba(45, 62, 80, 0.85); /* Fondo oscuro semi-transparente */
+  background-color: rgba(45, 62, 80, 0.85);
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  width: 100%; /* Ocupa todo el ancho del contenedor */
-  max-width: 900px; /* Ancho máximo para mejor legibilidad en pantallas grandes */
+  width: 100%;
+  max-width: 900px;
 }
 
 .title {
@@ -45,9 +45,9 @@
 }
 
 .userData {
-  color: #b0c4de; /* Gris claro */
+  color: #b0c4de; 
   margin-bottom: 12px;
-  font-size: 1.2rem; /* Tamaño de fuente más grande */
+  font-size: 1.2rem;
 }
 
 .input {
@@ -63,10 +63,11 @@
 }
 
 .input:focus {
-  border-color: #63b3ed; /* Color azul claro al hacer focus */
+  border-color: #63b3ed;
   outline: none;
 }
 
+/* Estilos para los botones de acción */
 .editButton, .saveButton, .cancelButton {
   width: 100%;
   padding: 16px;
@@ -97,9 +98,26 @@
 }
 
 .cancelButton {
-  background-color: #e53e3e; /* Color rojo para cancelar */
+  background-color: #e53e3e;
 }
 
 .cancelButton:hover {
   background-color: #c53030;
+}
+.txtButton {
+  background-color: #454545;
+  color: #cbd5e0;
+  cursor: not-allowed;
+  border: 1px solid #e2e8f0;
+  padding: 14px;
+  border-radius: 6px;
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+.txtButton:focus {
+  border-color: #e2e8f0;
+  outline: none;
 }
