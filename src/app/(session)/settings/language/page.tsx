@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import i18n from "@/i18n"; // Importa la configuración de i18next
+import i18n from "@/app/i18n"; // Importa la configuración de i18next
 import clsx from "clsx";
 
 const languages = [
