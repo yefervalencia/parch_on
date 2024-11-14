@@ -11,5 +11,6 @@
   "logout": "Log out",
   "search": "Search",
   "welcomeMessage": "Welcome {{name}}",
-  "gladMessage": "We are glad to have you here."
+  "gladMessage": "We are glad to have you here.",
+  "all rights reserved":"all rights reserved"
 }

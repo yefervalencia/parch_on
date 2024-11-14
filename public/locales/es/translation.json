@@ -11,5 +11,6 @@
   "logout": "Cerrar sesión",
   "search": "Buscar",
   "welcomeMessage": "Bienvenido {{name}}",
-  "gladMessage": "Nos alegra tenerte aquí."
+  "gladMessage": "Nos alegra tenerte aquí.",
+  "all rights reserved":"Todos los derechos reservados"
 }
