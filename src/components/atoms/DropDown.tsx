@@ -18,7 +18,7 @@ export const DropDown: React.FC<DropDownProps> = ({
 }) => {
   const { t } = useTranslation();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+  
   // Función para alternar el menú desplegable
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);

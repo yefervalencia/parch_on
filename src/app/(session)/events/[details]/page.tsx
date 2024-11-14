@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getEventDetails } from "@/libs/api";
 import { formatDate, formatTimeToAMPM } from "@/utils/dateUtils";
+import { useTranslation } from "next-i18next";
 
 export default function DetailEvent() {
   const { details: id } = useParams();

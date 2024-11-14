@@ -1,6 +1,4 @@
 import { DTOUser, DTOlogin } from "@/types/DTO/api";
-import { jwtDecode } from "jwt-decode";
-import Cookies from 'js-cookie';
 
 const API = 'http://localhost:4000'
 
@@ -193,7 +191,7 @@ export const fetchUserData = async (userId: number) => {
   }
   return response.json();
 };
-
+// Edit function name!!!
 export const updateUserData = async (userId: number, updatedUser: any) => {
   return fetch(`${API}/users/${userId}`, {
     method: 'PUT',

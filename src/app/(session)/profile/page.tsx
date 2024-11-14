@@ -3,29 +3,6 @@
 import { updateUserData, getUserByCookie } from "@/libs/api";
 import React, { useEffect, useState } from "react";
 import styles from "./Profile.module.css";
-const jwt_decode = require("jwt-decode"); // Usar require en vez de import
-import Cookies from 'js-cookie';
-
-const fetchUserData = async () => {
-  try {
-    // Obtener los datos del usuario a través de la función getUserByCookie
-    const userData = await getUserByCookie();
-
-    if (userData) {
-      const response = await fetch(`http://localhost:4000/users/${userData.id}`, {
-        method: 'GET', // Método de la petición
-        headers: {
-          'Content-Type': 'application/json', // Puedes agregar otros headers si es necesario
-        },
-        credentials: 'include', // Para incluir las cookies
-      });
-
-      return response.json();
-    }
-  } catch (error) {
-    console.error("Error fetching user data:", error);
-  }
-};
 
 export default function Profile() {
   const [user, setUser] = useState<any>(null);
@@ -35,7 +12,7 @@ export default function Profile() {
   const [editedUser, setEditedUser] = useState<any>(null);
 
   useEffect(() => {
-    fetchUserData()
+    getUserByCookie()
       .then((data) => {
         setUser(data);
         setEditedUser(data);
@@ -66,14 +43,13 @@ export default function Profile() {
     const newEdited = {
       name: editedUser.name,
       lastname: editedUser.lastname,
-      email: editedUser.email,
       phone: editedUser.phone,
     };
 
     if (newEdited.name === user.name) delete newEdited.name;
     if (newEdited.lastname === user.lastname) delete newEdited.lastname;
-    if (newEdited.email === user.email) delete newEdited.email;
     if (newEdited.phone === user.phone) delete newEdited.phone;
+
     if (Object.keys(newEdited).length > 0) {
       updateUserData(editedUser.id, newEdited)
         .then((updatedData) => {
@@ -84,7 +60,6 @@ export default function Profile() {
         })
         .catch((err) => {
           console.log(err);
-
           setError(err.message);
           setLoading(false);
         });
@@ -134,11 +109,11 @@ export default function Profile() {
                 onChange={handleInputChange}
               />
               <input
-                className={styles.input}
+                className={`${styles.input} ${styles.txtButton}`}
                 type="email"
                 name="email"
                 value={editedUser.email}
-                onChange={handleInputChange}
+                readOnly
               />
               <input
                 className={styles.input}

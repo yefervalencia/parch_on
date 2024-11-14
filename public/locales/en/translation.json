@@ -12,5 +12,8 @@
   "search": "Search",
   "welcomeMessage": "Welcome {{name}}",
   "gladMessage": "We are glad to have you here.",
-  "all rights reserved":"all rights reserved"
+  "all rights reserved":"all rights reserved",
+  "loading": "Loading...",
+  "eventImageAlt": "Event image",
+  "buyTickets": "Buy tickets"
 }

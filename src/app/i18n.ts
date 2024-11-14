@@ -20,6 +20,11 @@ i18n
       order: ['querystring', 'cookie', 'localStorage', 'navigator', 'htmlTag'],
       caches: ['cookie'],
     },
+    load: 'languageOnly',
+    preload: ['es', 'en', 'fr'],
+    react: {
+      useSuspense: true,
+    },
   });
 
 export default i18n;
