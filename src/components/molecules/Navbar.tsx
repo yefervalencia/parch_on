@@ -1,43 +1,51 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-
 import "./Navbar.css";
+
+const navLinks = [
+  { href: "/about", text: "Nosotros" },
+  { href: "/contact", text: "Contacto" },
+  { href: "/testimonies", text: "Testimonio" },
+  { href: "/FAQ", text: "Preguntas frecuentes" },
+];
+
+const authLinks = [
+  { href: "/login", text: "Iniciar sesión", className: "loginBtn" },
+  { href: "/register", text: "Registrarse", className: "registerBtn" },
+];
 
 export const Navbar = () => {
   return (
-    <nav className="navbar">
+    <nav className="navbar" suppressHydrationWarning>
       <div className="logo">
-        <Link href="./">
+        <Link href="/">
           <Image
             className="parchon"
             src="/nav-image.png"
             alt="Logo"
             width={80}
             height={80}
+            priority={true}
           />
         </Link>
       </div>
+
       <ul className="navLinks">
-        <li>
-          <Link href="./about">Nosotros</Link>
-        </li>
-        <li>
-          <Link href="./contact">Contacto</Link>
-        </li>
-        <li>
-          <Link href="./testimonies">Testimonio</Link>
-        </li>
-        <li>
-          <Link href="./FAQ">Preguntas frecuentes</Link>
-        </li>
+        {navLinks.map(({ href, text }) => (
+          <li key={href}>
+            <Link href={href}>{text}</Link>
+          </li>
+        ))}
       </ul>
+
       <div className="authButtons">
-        <Link href="/login">
-          <button className="loginBtn">Iniciar sesión</button>
-        </Link>
-        <Link href="/register">
-          <button className="registerBtn">Registrarse</button>
-        </Link>
+        {authLinks.map(({ href, text, className }) => (
+          <Link href={href} key={href}>
+            <button className={className}>{text}</button>
+          </Link>
+        ))}
       </div>
     </nav>
   );

@@ -1,0 +1,123 @@
+.container {
+  padding: 30px;
+  background-color: transparent;
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  font-size: 2.4rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.loading, .error {
+  color: #ff4d4d;
+  text-align: center;
+}
+
+.card {
+  background-color: rgba(45, 62, 80, 0.85);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 900px;
+}
+
+.title {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #fff;
+  text-align: center;
+}
+
+.label {
+  font-weight: bold;
+  color: #b0c4de;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.userData {
+  color: #b0c4de; 
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+
+.input {
+  display: block;
+  margin-bottom: 20px;
+  padding: 14px;
+  border: 1px solid #4a5568;
+  border-radius: 6px;
+  width: 100%;
+  color: #333;
+  background-color: #e2e8f0;
+  font-size: 1.1rem;
+}
+
+.input:focus {
+  border-color: #63b3ed;
+  outline: none;
+}
+
+/* Estilos para los botones de acción */
+.editButton, .saveButton, .cancelButton {
+  width: 100%;
+  padding: 16px;
+  margin-top: 12px;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.editButton {
+  background-color: #007bff;
+}
+
+.editButton:hover {
+  background-color: #0056b3;
+}
+
+.saveButton {
+  background-color: #38a169;
+}
+
+.saveButton:hover {
+  background-color: #2f855a;
+}
+
+.cancelButton {
+  background-color: #e53e3e;
+}
+
+.cancelButton:hover {
+  background-color: #c53030;
+}
+.txtButton {
+  background-color: #454545;
+  color: #cbd5e0;
+  cursor: not-allowed;
+  border: 1px solid #e2e8f0;
+  padding: 14px;
+  border-radius: 6px;
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+.txtButton:focus {
+  border-color: #e2e8f0;
+  outline: none;
+}

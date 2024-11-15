@@ -1,0 +1,19 @@
+{
+  "language": "Language",
+  "theme": "Theme",
+  "selectLanguage": "Select Language",
+  "gallery": "Gallery",
+  "events": "Events",
+  "viewEvents": "View events",
+  "createEvent": "Create event",
+  "settings": "Settings",
+  "profile": "Profile",
+  "logout": "Log out",
+  "search": "Search",
+  "welcomeMessage": "Welcome {{name}}",
+  "gladMessage": "We are glad to have you here.",
+  "allrightsreserved":"all rights reserved",
+  "loading": "Loading...",
+  "eventImageAlt": "Event image",
+  "buyTickets": "Buy tickets"
+}
