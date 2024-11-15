@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
+
     "@primer/octicons-react": "^19.11.0",
     "clsx": "^2.1.1",
     "i18next": "^23.16.5",

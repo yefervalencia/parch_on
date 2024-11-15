@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Masonry from "react-masonry-css";
 import { GalleryImage } from "@/components/";
-import Image from "next/image";
+import Image from "next/image";import { useTranslation } from "react-i18next";
 
 // Interfaz para las imágenes
 interface GalleryImage {
@@ -54,6 +54,8 @@ const sampleImages: GalleryImage[] = [
 ];
 
 export const GalleryPage = () => {
+  const { t } = useTranslation(); 
+
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
 
   const openModal = (image: GalleryImage) => {
@@ -66,7 +68,7 @@ export const GalleryPage = () => {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Galería</h1>
+      <h1 className="text-2xl font-bold mb-6">{t("gallery")} {}</h1>
       <Masonry
         breakpointCols={{ default: 4, 1100: 3, 700: 2, 500: 1 }}
         className="flex -ml-4"
