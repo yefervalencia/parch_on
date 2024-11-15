@@ -1,0 +1,72 @@
+.testimonies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centra verticalmente */
+  min-height: 100vh; /* Altura completa de la pantalla */
+  padding: 50px;
+  background-color: #0606062e;
+  color: #ffffff;
+}
+
+/* Encabezado */
+.testimonies-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.testimonies-header h2 {
+  font-size: 3rem; /* Texto más grande */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.testimonies-header p {
+  font-size: 1.5rem; /* Subtítulo más prominente */
+  color: #ffffff;
+}
+
+/* Contenedor de testimonios */
+.testimonies-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px; /* Espacio entre las tarjetas */
+}
+
+/* Tarjetas de testimonios */
+.testimony-card {
+  background: rgba(5, 5, 5, 0.562);
+  color: #f5f5f5;
+  border-radius: 15px; /* Esquinas más redondeadas */
+  padding: 30px;
+  width: 90%; /* Ancho flexible */
+  max-width: 700px; /* Limitar ancho máximo */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra más prominente */
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.testimony-card:hover {
+  transform: translateY(-10px); /* Elevación mayor en hover */
+}
+
+/* Estilo de texto */
+.user {
+  font-weight: bold;
+  font-size: 1.5rem; /* Texto más grande */
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.feedback {
+  font-size: 1.2rem; /* Tamaño intermedio */
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.location {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: bold;
+}
