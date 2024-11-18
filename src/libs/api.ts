@@ -184,6 +184,21 @@ export const getEventDetails = async (id: string) => {
   }
 };
 
+export const getTicketTiers = async (id: string) => {
+  try {
+    const response = await fetch(`${API}/tickets/tiers/${id}`);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const rawData = await response.json();
+    return rawData;
+  } catch (error) {
+    return null;
+  }
+};
+
 export const fetchUserData = async (userId: number) => {
   const response = await fetch(`${API}/${userId}`);
   if (!response.ok) {
