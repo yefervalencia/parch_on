@@ -84,7 +84,7 @@ export const NavbarS = () => {
           link="/events"
           items={[
             { href: "/events", text: "viewEvents" },
-            { href: "/create-event", text: "createEvent" },
+            { href: "/newEvent", text: "createEvent" },
           ]}
         />
       </ul>

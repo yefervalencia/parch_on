@@ -31,3 +31,16 @@ export type Ticket = {
     description: string;
     remaining: number;
 };
+
+export type DAOPlace = {
+    id: string;
+    place: string;
+    address: string;
+    id_city: string;
+    id_event: string;
+}
+
+export type DAOCategory = {
+    id: string;
+    category: string;
+}

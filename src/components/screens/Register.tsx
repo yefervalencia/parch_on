@@ -3,8 +3,7 @@
 import "./Register.css";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { registerSchema } from "@/validators/registerSchema";
-import { zodResolver } from "@hookform/resolvers/zod";
-
+import { zodResolver } from "@hookform/resolvers/zod"; 
 import { useEffect, useState } from "react";
 import { registerUser, getCities } from "@/libs/api";
 import { useRouter } from "next/navigation";

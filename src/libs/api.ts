@@ -1,6 +1,58 @@
-import { DTOUser, DTOlogin } from "@/types/DTO/api";
+import { DTOUser, DTOlogin, DTOEvent} from "@/types/DTO/api";
 
 const API = 'http://localhost:4000'
+
+export const createEvent= async (body: DTOEvent) => {
+  try {
+    const response = await fetch(`${API}/events`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+      credentials: 'include',
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const rawData = await response.json();
+    return rawData;
+  } catch (error) {
+    return null;
+  }
+}
+
+export const getPlaces = async() => {
+  try {
+    const response = await fetch(`${API}/places`);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const rawData = await response.json();
+    return rawData;
+  } catch (error) {
+    return null;
+  }
+}
+
+export const getCategories = async() => {
+  try {
+    const response = await fetch(`${API}/categories`);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const rawData = await response.json();
+    return rawData;
+  } catch (error) {
+    return null;
+  }
+}
 
 // Sign up User
 export const registerUser = async (body: DTOUser) => {
