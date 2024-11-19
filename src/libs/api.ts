@@ -1,6 +1,6 @@
 import { DTOUser, DTOlogin, DTOEvent} from "@/types/DTO/api";
 
-const API = 'http://localhost:4000'
+const API = process.env.NEXT_PUBLIC_API_URL;
 
 export const createEvent= async (body: DTOEvent) => {
   try {
