@@ -1,0 +1,29 @@
+.general {
+  width: 100%;
+  section {
+    width: 100%;
+    max-width: 1300px;
+    padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+    aside {
+      width: 20%;
+      nav {
+        ul {
+          background-color: aqua;
+          li {
+            padding: 10px;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+        }
+      }
+      section {
+        width: 75%;
+      }
+    }
+  }
+}

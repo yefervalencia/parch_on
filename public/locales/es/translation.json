@@ -12,8 +12,8 @@
   "search": "Buscar",
   "welcomeMessage": "Bienvenido {{name}}",
   "gladMessage": "Nos alegra tenerte aquí.",
-  "allrightsreserved":"Todos los derechos reservados",
+  "allrightsreserved": "Todos los derechos reservados",
   "loading": "Cargando...",
   "eventImageAlt": "Imagen del evento",
-  "buyTickets": "Comprar tickets"
+  "myEvents": "Mis eventos"
 }
