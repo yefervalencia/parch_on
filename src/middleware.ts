@@ -1,43 +1,83 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { getRoleByCookie } from '@/libs/api';
 
-// Define the routes to be protected
-const userProtectedRoutes = ['/protected', '/agenda', '/events', '/gallery', '/home', '/profile', '/reviews', '/settings', '/tickets'];
-const guestProtectedRoutes = ['/', '/login', '/register', '/about', '/contact', '/FAQ', '/testimonies'];
+// Define allowed roles
+type Role = 'Administrator' | 'User' | 'Guest';
 
-export function middleware(request: NextRequest) {
+// Define routes and roles
+const routesByRole: Record<Role, string[]> = {
+    Administrator: [
+        '/create-event',
+        '/protected',
+        '/agenda',
+        '/events',
+        '/gallery',
+        '/home',
+        '/profile',
+        '/reviews',
+        '/settings',
+        '/tickets',
+    ],
+    User: [
+        '/agenda',
+        '/events',
+        '/gallery',
+        '/home',
+        '/profile',
+        '/reviews',
+        '/settings',
+        '/tickets',
+    ],
+    Guest: [
+        '/',
+        '/login',
+        '/register',
+        '/about',
+        '/contact',
+        '/FAQ',
+        '/testimonies',
+    ],
+};
+
+// Redirect map for unauthorized access
+const redirectByRole: Record<Role, string> = {
+    Administrator: '/home',
+    User: '/home',
+    Guest: '/login',
+};
+
+export async function middleware(request: NextRequest) {
+    const token = request.cookies.get('SESSIONPON')?.value;
     // Get the cookie token
-    const token = request.cookies.get('SESSIONPON');
+    let role: Role = "Guest"; // Default role
 
-    const isAuthenticated = !!token;
-
-    console.log("Is authenticated:", isAuthenticated);
-    console.log("Current path:", request.nextUrl.pathname);
-
-    // Determines whether the current path is an authenticated user or a guest path
-
-    const isUserRoute = userProtectedRoutes.some(route => request.nextUrl.pathname.startsWith(route));
-    const isGuestRoute = guestProtectedRoutes.some(route => request.nextUrl.pathname.startsWith(route));
-
-    // Redirect to /login if you try to access a protected path without being authenticated
-
-    if (isUserRoute && !isAuthenticated) {
-        console.log("Redirigiendo a /login porque no hay autenticación");
-        return NextResponse.redirect(new URL('/login', request.url));
+    try {
+        const response = await getRoleByCookie(token);
+        role = response.role;
+    } catch (error) {
+        console.error('Error fetching role:', error);
     }
 
-    if (isUserRoute && isAuthenticated) {
-        return NextResponse.next();
+    console.log("Current path: ", request.nextUrl.pathname);
+    console.log("User role: ", role);
+
+    // Check access based on the current route
+    const currentPath = request.nextUrl.pathname;
+    const isAuthorized = Object.entries(routesByRole).some(([allowedRole, paths]) => {
+        if (role === allowedRole) {
+            return paths.some((route) => currentPath.startsWith(route));
+        }
+        return false;
+    });
+
+    // Redirect if not authorized
+    if (!isAuthorized) {
+        const redirectPath = redirectByRole[role] || '/';
+        console.log(`Redirecting to ${redirectPath} due to unauthorized access.`);
+        return NextResponse.redirect(new URL(redirectPath, request.url));
     }
 
-    // Redirect to /home if you try to access a guest path (login, register, etc.) and you are already authenticated
-    if (isGuestRoute && isAuthenticated) {
-        console.log("Redirigiendo a /home porque ya está autenticado");
-        return NextResponse.redirect(new URL('/home', request.url));
-    }
-
-    if (isGuestRoute && !isAuthenticated) {
-        return NextResponse.next();
-    }
+    return NextResponse.next();
 }
 
 // Configure routes to apply middleware
@@ -47,6 +87,7 @@ export const config = {
         '/home/:path*',
         '/agenda/:path*',
         '/events/:path*',
+        '/create-event',
         '/gallery/:path*',
         '/profile/:path*',
         '/reviews/:path*',
