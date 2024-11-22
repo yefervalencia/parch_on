@@ -4,12 +4,13 @@ import { useParams } from "next/navigation";
 import Image from "next/image";
 import { ClockIcon, LocationIcon } from "@primer/octicons-react";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import { getEventDetails } from "@/libs/api";
 import { formatDate, formatTimeToAMPM } from "@/utils/dateUtils";
-import { useTranslation } from "next-i18next";
 
 export default function DetailEvent() {
+  const { t } = useTranslation();
   const { details: id } = useParams();
   const [event, setEvent] = useState<null | {
     event: string;
@@ -81,7 +82,7 @@ export default function DetailEvent() {
               type="button"
               className="bg-[#ff0066] font-bold text-white text-2xl px-4 py-2 rounded-2xl hover:bg-[#e6005c] "
             >
-              Comprar tickets
+              {t("buyTickets")}
             </button>
           </Link>
         </div>

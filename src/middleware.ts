@@ -8,6 +8,7 @@ type Role = 'Administrator' | 'User' | 'Guest';
 const routesByRole: Record<Role, string[]> = {
     Administrator: [
         '/create-event',
+        '/my-events',
         '/protected',
         '/agenda',
         '/events',
@@ -19,6 +20,7 @@ const routesByRole: Record<Role, string[]> = {
         '/tickets',
     ],
     User: [
+        '/my-events',
         '/agenda',
         '/events',
         '/gallery',
@@ -48,7 +50,6 @@ const redirectByRole: Record<Role, string> = {
 
 export async function middleware(request: NextRequest) {
     const token = request.cookies.get('SESSIONPON')?.value;
-    // Get the cookie token
     let role: Role = "Guest"; // Default role
 
     try {
@@ -58,17 +59,21 @@ export async function middleware(request: NextRequest) {
         console.error('Error fetching role:', error);
     }
 
-    console.log("Current path: ", request.nextUrl.pathname);
-    console.log("User role: ", role);
+    console.log("Current path:", request.nextUrl.pathname);
+    console.log("User role:", role);
 
-    // Check access based on the current route
-    const currentPath = request.nextUrl.pathname;
-    const isAuthorized = Object.entries(routesByRole).some(([allowedRole, paths]) => {
-        if (role === allowedRole) {
-            return paths.some((route) => currentPath.startsWith(route));
-        }
-        return false;
-    });
+    // Directly check if the current path is allowed for the user's role
+    const isAuthorized = routesByRole[role].some((route) =>
+        request.nextUrl.pathname.startsWith(route)
+    );
+
+    // Implement hierarchical access control
+    /* const isAuthorized = role === 'Administrator' ||
+        (role === 'User' && !routesByRole['Administrator'].includes(request.nextUrl.pathname)) ||
+        (role === 'User' && !routesByRole['User'].includes(request.nextUrl.pathname)) ||
+        (role === 'Guest' && routesByRole['Guest'].includes(request.nextUrl.pathname)); */
+
+    console.log("Auth?", isAuthorized);
 
     // Redirect if not authorized
     if (!isAuthorized) {
@@ -88,6 +93,7 @@ export const config = {
         '/agenda/:path*',
         '/events/:path*',
         '/create-event',
+        '/my-events/:path*',
         '/gallery/:path*',
         '/profile/:path*',
         '/reviews/:path*',

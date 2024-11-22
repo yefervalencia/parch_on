@@ -1,8 +1,13 @@
+"use client";
+
+import { useTranslation } from "react-i18next";
+
 const SettingsPage = () => {
+  const { t } = useTranslation();
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Configuración</h1>
-      <p>Selecciona una opción del menú para cambiar tu configuración.</p>
+      <h1 className="text-2xl font-bold mb-4">{t("settings")}</h1>
+      <p>{t("selectAMenuOption")}</p>
     </div>
   );
 };

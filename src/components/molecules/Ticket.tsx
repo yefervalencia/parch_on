@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 interface TicketProps {
   id: number;
@@ -28,6 +29,7 @@ export const Ticket: React.FC<TicketProps> = ({
   description,
   onAddToCart,
 }) => {
+  const { t } = useTranslation();
   const [quantity, setQuantity] = useState(1);
 
   const increment = () => setQuantity(quantity + 1);
@@ -66,7 +68,7 @@ export const Ticket: React.FC<TicketProps> = ({
         onClick={handleAddToCart}
         className="mt-auto bg-white text-black font-semibold py-2 px-4 rounded hover:bg-gray-200 transition"
       >
-        Add to Cart
+        {t("addToCart")}
       </button>
     </div>
   );

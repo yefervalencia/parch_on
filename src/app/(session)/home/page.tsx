@@ -24,14 +24,14 @@ export default function HomePage() {
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          {t('welcomeMessage', { name })} {/* Traducción del mensaje de bienvenida */}
+          {t("welcome", { name })} {/* Traducción del mensaje de bienvenida */}
         </h1>
         <p
           className={`text-xl text-gray-200 transition-opacity duration-1000 delay-300 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          {t('gladMessage')} {/* Traducción del mensaje de agrado */}
+          {t("weAreGlad")} {/* Traducción del mensaje de agrado */}
         </p>
       </div>
     </div>

@@ -1,5 +1,7 @@
-// Molecules/AlertModal.tsx
+"use client";
+
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Icon } from "@/components";
 
 interface AlertModalProps {
@@ -15,6 +17,7 @@ export const AlertModal: React.FC<AlertModalProps> = ({
   onConfirm,
   onCancel,
 }) => {
+  const { t } = useTranslation();
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-60">
       <div className="bg-white text-black rounded-lg p-4 max-w-sm w-full flex flex-col items-center">
@@ -30,7 +33,7 @@ export const AlertModal: React.FC<AlertModalProps> = ({
             onClick={onCancel}
             className="py-1 px-4 text-gray-500 rounded hover:bg-gray-200 transition"
           >
-            No
+            {t("no")}
           </button>
           <button
             onClick={onConfirm}
@@ -40,7 +43,7 @@ export const AlertModal: React.FC<AlertModalProps> = ({
                 : "bg-red-600 hover:bg-red-700"
             } text-white rounded transition`}
           >
-            Yes
+            {t("yes")}
           </button>
         </div>
       </div>

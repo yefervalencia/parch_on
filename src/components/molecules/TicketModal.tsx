@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { AlertModal } from "@/components";
 import { XIcon } from "@primer/octicons-react";
 import { sendWhatsAppMessage } from "@/utils/whatsappUtils";
@@ -17,6 +18,7 @@ export const TicketModal: React.FC<TicketModalProps> = ({
   onConfirm,
   onCancel,
 }) => {
+  const { t } = useTranslation();
   const [showAlert, setShowAlert] = useState(false);
   const [alertType, setAlertType] = useState<"confirm" | "cancel" | null>(null);
 
@@ -52,7 +54,7 @@ export const TicketModal: React.FC<TicketModalProps> = ({
         >
           <XIcon size={24} />
         </button>
-        <h3 className="text-xl font-semibold mb-4">Purchase Summary</h3>
+        <h3 className="text-xl font-semibold mb-4">{t("purchaseSummary")}</h3>
         <ul className="mb-4">
           {tickets.map((ticket, index) => (
             <li key={index} className="flex justify-between">
@@ -63,20 +65,22 @@ export const TicketModal: React.FC<TicketModalProps> = ({
             </li>
           ))}
         </ul>
-        <p className="font-bold text-lg mb-4">Total: ${total.toFixed(2)}</p>
+        <p className="font-bold text-lg mb-4">
+          {t("total")}: ${total.toFixed(2)}
+        </p>
 
         <div className="flex justify-end gap-2">
           <button
             onClick={() => handleActionConfirmation("cancel")}
             className="py-2 px-4 text-red-500 rounded hover:bg-gray-400 transition"
           >
-            Cancel
+            {t("cancel")}
           </button>
           <button
             onClick={() => handleActionConfirmation("confirm")}
             className="py-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
           >
-            Confirm Order
+            {t("confirmOrder")}
           </button>
         </div>
 
@@ -85,8 +89,8 @@ export const TicketModal: React.FC<TicketModalProps> = ({
             type={alertType}
             message={
               alertType === "confirm"
-                ? "Are you sure you want to confirm the order?"
-                : "Are you sure you want to cancel the order?"
+                ? t("areYouSureYouWantToConfirmTheOrder")
+                : t("areYouSureYouWantToCancelTheOrder")
             }
             onConfirm={handleConfirmAction}
             onCancel={() => setShowAlert(false)}
