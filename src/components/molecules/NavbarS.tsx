@@ -39,8 +39,6 @@ export const NavbarS = () => {
         // Obtener los datos del usuario a través de la función getUserByCookie
         const userData = await getUserByCookie();
 
-        console.log(userData);
-
         if (userData) {
           // Obtener el primer nombre y el primer apellido
           const firstName = userData.name.split(" ")[0];
@@ -84,7 +82,8 @@ export const NavbarS = () => {
           link="/events"
           items={[
             { href: "/events", text: "viewEvents" },
-            { href: "/newEvent", text: "createEvent" },
+            { href: "/create-event", text: "createEvent" },
+            { href: "/my-events", text: "myEvents" },
           ]}
         />
       </ul>

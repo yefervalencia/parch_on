@@ -1,8 +1,7 @@
-import { DTOUser, DTOlogin, DTOEvent} from "@/types/DTO/api";
+import { DTOUser, DTOlogin, DTOEvent } from "@/types/DTO/api";
+import { API } from "@/config/env.local";
 
-const API = process.env.NEXT_PUBLIC_API_URL;
-
-export const createEvent= async (body: DTOEvent) => {
+export const createEvent = async (body: DTOEvent) => {
   try {
     const response = await fetch(`${API}/events`, {
       method: 'POST',
@@ -24,7 +23,7 @@ export const createEvent= async (body: DTOEvent) => {
   }
 }
 
-export const getPlaces = async() => {
+export const getPlaces = async () => {
   try {
     const response = await fetch(`${API}/places`);
 
@@ -39,7 +38,7 @@ export const getPlaces = async() => {
   }
 }
 
-export const getCategories = async() => {
+export const getCategories = async () => {
   try {
     const response = await fetch(`${API}/categories`);
 
@@ -175,6 +174,35 @@ export const getCookieExists = async () => {
     return { isAuthenticated: false };
   }
 }
+
+export const getRoleByCookie = async (token: string | undefined) => {
+  try {
+    if (!token) {
+      return { role: "Guest" };
+    }
+
+    const response = await fetch(`${API}/role`, {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(`Error: ${errorData.message}`);
+    }
+
+    const rawData = await response.json();
+    return rawData;
+  } catch (error) {
+    console.error('Error al obtener el rol:', error);
+    return { role: "Guest" };
+  }
+};
+
 
 export const getEvents = async () => {
   try {

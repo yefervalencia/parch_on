@@ -35,8 +35,8 @@ export const GalleryImage: React.FC<ImageModalProps> = ({ image, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50 max-w-full">
-      <div className="relative bg-[#181818] rounded-lg max-w-sm w-full p-4">
+    <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
+      <div className="relative bg-[#181818] rounded-lg p-4 max-w-[90vw] max-h-[90vh]">
         <button
           onClick={onClose}
           className="absolute top-2 right-2 text-gray-50 hover:text-gray-800"
@@ -57,16 +57,16 @@ export const GalleryImage: React.FC<ImageModalProps> = ({ image, onClose }) => {
           <Image
             src={image.url}
             alt={image.event}
-            className="w-full h-auto rounded-md"
-            width={1000}
-            height={1000}
+            width={500}
+            height={500}
+            className="max-h-[60vh] max-w-max rounded-md"
           />
         </div>
         <div className="text-center text-white">{image.event}</div>
         <div className="mt-4 flex justify-between items-center">
           <button
             onClick={toggleLike}
-            className="flex items-center text-red-500 hover:text-red-700"
+            className="flex items-center text-red-500 hover:text-red-700 transition"
           >
             {liked ? (
               <HeartFillIcon className="w-6 h-6 mr-1" />
@@ -77,7 +77,7 @@ export const GalleryImage: React.FC<ImageModalProps> = ({ image, onClose }) => {
           </button>
           <button
             onClick={downloadImage}
-            className="text-blue-500 hover:text-blue-700"
+            className="flex items-center text-blue-500 hover:text-blue-700 transition"
           >
             <DownloadIcon className="w-6 h-6 mr-1" />
             Descargar
