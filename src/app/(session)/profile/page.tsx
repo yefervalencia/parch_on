@@ -2,9 +2,11 @@
 
 import { updateUserData, getUserByCookie } from "@/libs/api";
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import styles from "./Profile.module.css";
 
 export default function Profile() {
+  const { t } = useTranslation();
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -55,7 +57,8 @@ export default function Profile() {
     if (newEdited.name === user.name) delete newEdited.name;
     if (newEdited.lastname === user.lastname) delete newEdited.lastname;
     if (newEdited.phone === user.phone) delete newEdited.phone;
-    if (newEdited.profileImage === user.profileImage) delete newEdited.profileImage;
+    if (newEdited.profileImage === user.profileImage)
+      delete newEdited.profileImage;
 
     if (Object.keys(newEdited).length > 0) {
       updateUserData(editedUser.id, newEdited)
@@ -98,47 +101,57 @@ export default function Profile() {
         </h2>
         <ul className={styles.navList}>
           <li
-            className={`${styles.navItem} ${activeSection === "Cuenta" ? styles.active : ""}`}
+            className={`${styles.navItem} ${
+              activeSection === "Cuenta" ? styles.active : ""
+            }`}
             onClick={() => setActiveSection("Cuenta")}
           >
-            Cuenta
+            {t("account")}
           </li>
           <li
-            className={`${styles.navItem} ${activeSection === "Contraseña" ? styles.active : ""}`}
+            className={`${styles.navItem} ${
+              activeSection === "Contraseña" ? styles.active : ""
+            }`}
             onClick={() => setActiveSection("Contraseña")}
           >
-            Contraseña
+            {t("password")}
           </li>
           <li
-            className={`${styles.navItem} ${activeSection === "Seguridad" ? styles.active : ""}`}
+            className={`${styles.navItem} ${
+              activeSection === "Seguridad" ? styles.active : ""
+            }`}
             onClick={() => setActiveSection("Seguridad")}
           >
-            Seguridad
+            {t("security")}
           </li>
           <li
-            className={`${styles.navItem} ${activeSection === "Aplicación" ? styles.active : ""}`}
+            className={`${styles.navItem} ${
+              activeSection === "Aplicación" ? styles.active : ""
+            }`}
             onClick={() => setActiveSection("Aplicación")}
           >
-            Aplicación
+            {t("application")}
           </li>
           <li
-            className={`${styles.navItem} ${activeSection === "Notificación" ? styles.active : ""}`}
+            className={`${styles.navItem} ${
+              activeSection === "Notificación" ? styles.active : ""
+            }`}
             onClick={() => setActiveSection("Notificación")}
           >
-            Notificación
+            {t("notifications")}
           </li>
         </ul>
       </aside>
       <main className={styles.mainContent}>
         {activeSection === "Cuenta" && (
           <>
-            <h1 className={styles.header}>Configuración de la Cuenta</h1>
-            {loading && <p className={styles.loading}>Cargando...</p>}
+            <h1 className={styles.header}>{t("accountSettings")}</h1>
+            {loading && <p className={styles.loading}>{t("loading")}</p>}
             {error && <p className={styles.error}>Error: {error}</p>}
             {user && (
               <div className={styles.card}>
                 <div className={styles.formGroup}>
-                  <label className={styles.label}>Nombre</label>
+                  <label className={styles.label}>{t("name")}</label>
                   <input
                     className={styles.input}
                     type="text"
@@ -148,7 +161,7 @@ export default function Profile() {
                   />
                 </div>
                 <div className={styles.formGroup}>
-                  <label className={styles.label}>Apellido</label>
+                  <label className={styles.label}>{t("surname")}</label>
                   <input
                     className={styles.input}
                     type="text"
@@ -158,7 +171,7 @@ export default function Profile() {
                   />
                 </div>
                 <div className={styles.formGroup}>
-                  <label className={styles.label}>Correo Electrónico</label>
+                  <label className={styles.label}>{t("email")}</label>
                   <input
                     className={`${styles.input} ${styles.readOnly}`}
                     type="email"
@@ -168,7 +181,7 @@ export default function Profile() {
                   />
                 </div>
                 <div className={styles.formGroup}>
-                  <label className={styles.label}>Teléfono</label>
+                  <label className={styles.label}>{t("phone")}</label>
                   <input
                     className={styles.input}
                     type="tel"
@@ -179,10 +192,13 @@ export default function Profile() {
                 </div>
                 <div className={styles.buttons}>
                   <button onClick={handleSave} className={styles.saveButton}>
-                    Guardar
+                    {t("save")}
                   </button>
-                  <button onClick={handleCancel} className={styles.cancelButton}>
-                    Cancelar
+                  <button
+                    onClick={handleCancel}
+                    className={styles.cancelButton}
+                  >
+                    {t("cancel")}
                   </button>
                 </div>
               </div>

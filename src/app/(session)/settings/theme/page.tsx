@@ -1,8 +1,12 @@
+"use client";
+
+import { useTranslation } from "react-i18next";
+
 const ThemeSettings = () => {
+  const { t } = useTranslation();
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Configuración de tema</h1>
-      <p>Selecciona tu tema preferido:</p>
+      <h1 className="text-2xl font-bold mb-4">{t("selectTheme")}</h1>
     </div>
   );
 };

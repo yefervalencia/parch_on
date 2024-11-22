@@ -5,6 +5,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { Toast } from "primereact/toast";
+import { useTranslation } from "react-i18next";
 import { Ticket, TicketModal } from "@/components";
 import { getTicketTiers } from "@/libs/api";
 import { getColorByTier } from "@/utils/getColorByTierUtils";
@@ -20,6 +21,7 @@ interface TicketData {
 }
 
 export const TicketList: React.FC = () => {
+  const { t } = useTranslation();
   const [cart, setCart] = useState<TicketData[]>([]);
   const [tickets, setTickets] = useState<TicketData[]>([]);
   const [showModal, setShowModal] = useState(false);
@@ -63,8 +65,8 @@ export const TicketList: React.FC = () => {
     // Mostrar Toast de éxito
     toast.current?.show({
       severity: "success",
-      summary: "Ticket Added",
-      detail: `${ticket.tier.tier} ticket added to cart!`,
+      summary: t("ticketAdded"),
+      detail: `${ticket.tier.tier} ${t("ticketAddedToCart")}!`,
       life: 3000,
     });
   };
@@ -83,7 +85,7 @@ export const TicketList: React.FC = () => {
       <Toast ref={toast} />
 
       <div className="flex justify-between items-center mb-4">
-        <h1 className="text-3xl font-bold">Tickets</h1>
+        <h1 className="text-3xl font-bold">{t("tickets")}</h1>
         <div className="relative">
           <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2 py-1">
             {cart.length}

@@ -1,20 +1,70 @@
 {
-  "language": "Language",
-  "theme": "Theme",
-  "selectLanguage": "Select Language",
-  "gallery": "Gallery",
+  "CREATE-EVENT": "CREATE-EVENT",
+  "createEvent": "Create event",
+
+  "EVENTS": "EVENTS",
   "events": "Events",
   "viewEvents": "View events",
-  "createEvent": "Create event",
-  "settings": "Settings",
-  "profile": "Profile",
-  "logout": "Log out",
-  "search": "Search",
-  "welcomeMessage": "Welcome {{name}}",
-  "gladMessage": "We are glad to have you here.",
-  "allrightsreserved":"all rights reserved",
-  "loading": "Loading...",
-  "eventImageAlt": "Event image",
+  "myEvents": "My events",
+  "upcomingEvents": "Upcoming events",
+  "viewDetails": "View details",
   "buyTickets": "Buy tickets",
-  "myEvents": "My events"
+
+  "GALLERY": "GALLERY",
+  "gallery": "Gallery",
+  "like": "Like",
+  "download": "Download",
+
+  "HOME": "HOME",
+  "welcome": "Welcome {{name}}",
+  "weAreGlad": "We are glad to have you here.",
+
+  "PROFILE": "PROFILE",
+  "profile": "Profile",
+  "accountSettings": "Account Settings",
+  "account": "Account",
+  "password": "Password",
+  "security": "Security",
+  "application": "Application",
+  "notifications": "Notifications",
+
+  "REVIEWS": "REVIEWS",
+
+  "SETTINGS": "SETTINGS",
+  "settings": "Settings",
+  "selectAMenuOption": "Select a menu option to change your settings.",
+  "language": "Language",
+  "selectLanguage": "Select language",
+  "theme": "Theme",
+  "selectTheme": "Select theme",
+
+  "TICKETS": "TICKETS",
+  "tickets": "Tickets",
+  "addToCart": "Add to cart",
+  "ticketAdded": "Ticket added",
+  "ticketAddedToCart": "Ticket added to cart",
+  "purchaseSummary": "Purchase summary",
+  "total": "Total",
+  "confirmOrder": "Confirm order",
+  "areYouSureYouWantToCancelTheOrder": "Are you sure you want to cancel the order?",
+  "areYouSureYouWantToConfirmTheOrder": "Are you sure you want to confirm the order?",
+
+  "search": "Search",
+  "save": "Save",
+  "cancel": "Cancel",
+  "loading": "Loading...",
+  "yes": "Yes",
+  "no": "No",
+
+  "name": "Name",
+  "surname": "Surname",
+  "email": "E-mail",
+  "phone": "Phone",
+
+  "logout": "Log out",
+
+  "eventImageAlt": "Event image",
+  "allrightsreserved": "All rights reserved.",
+
+  "": ""
 }

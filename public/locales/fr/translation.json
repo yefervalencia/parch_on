@@ -1,20 +1,70 @@
 {
-  "language": "Langue",
-  "theme": "Thème",
-  "selectLanguage": "Sélectionner la langue",
-  "gallery": "Galerie",
-  "events": "Evénements",
-  "viewEvents": "Voir événements",
-  "createEvent": "Créer événement",
-  "settings": "Paramètres",
-  "profile": "Profil",
-  "logout": "Déconnexion",
-  "search": "Recherche",
-  "welcomeMessage": "Bienvenue {{name}}",
-  "gladMessage": "Nous sommes heureux de vous avoir ici.",
-  "allrightsreserved":"tous droits réservés",
-  "loading": "Chargement...",
-  "eventImageAlt": "Image de l'événement",
+  "CREATE-EVENT": "CREATE-EVENT",
+  "createEvent": "Créer un événement",
+
+  "EVENTS": "EVENTS",
+  "events": "Événements",
+  "viewEvents": "Voir les événements",
+  "myEvents": "Mes événements",
+  "upcomingEvents": "Événements à venir",
+  "viewDetails": "Voir les détails",
   "buyTickets": "Acheter des billets",
-  "myEvents": "Mes événements"
+
+  "GALLERY": "GALLERY",
+  "gallery": "Galerie",
+  "like": "J'aime",
+  "download": "Télécharger",
+
+  "HOME": "HOME",
+  "welcome": "Bienvenue {{name}}",
+  "weAreGlad": "Nous sommes ravis de vous accueillir.",
+
+  "PROFILE": "PROFILE",
+  "profile": "Profil",
+  "accountSettings": "Paramètres du compte",
+  "account": "Compte",
+  "password": "Mot de passe",
+  "security": "Sécurité",
+  "application": "Application",
+  "notifications": "Notifications",
+
+  "REVIEWS": "REVIEWS",
+
+  "SETTINGS": "SETTINGS",
+  "settings": "Paramètres",
+  "selectAMenuOption": "Sélectionnez une option pour modifier vos paramètres.",
+  "language": "Langue",
+  "selectLanguage": "Choisir la langue",
+  "theme": "Thème",
+  "selectTheme": "Choisir le thème",
+
+  "TICKETS": "TICKETS",
+  "tickets": "Billets",
+  "addToCart": "Ajouter au panier",
+  "ticketAdded": "Billet ajouté",
+  "ticketAddedToCart": "Billet ajouté au panier",
+  "purchaseSummary": "Résumé d'achat",
+  "total": "Total",
+  "confirmOrder": "Confirmer la commande",
+  "areYouSureYouWantToCancelTheOrder": "Êtes-vous sûr de vouloir annuler la commande ?",
+  "areYouSureYouWantToConfirmTheOrder": "Êtes-vous sûr de vouloir confirmer la commande ?",
+
+  "search": "Rechercher",
+  "save": "Enregistrer",
+  "cancel": "Annuler",
+  "loading": "Chargement...",
+  "yes": "Oui",
+  "no": "Non",
+
+  "name": "Nom",
+  "surname": "Prénom",
+  "email": "Courriel",
+  "phone": "Téléphone",
+
+  "logout": "Se déconnecter",
+
+  "eventImageAlt": "Image de l'événement",
+  "allrightsreserved": "Tous droits réservés.",
+
+  "": ""
 }

@@ -1,19 +1,70 @@
 {
-  "language": "Idioma",
-  "theme": "Tema",
-  "selectLanguage": "Selecciona un idioma",
-  "gallery": "Galería",
+  "CREATE-EVENT": "CREATE-EVENT",
+  "createEvent": "Crear evento",
+
+  "EVENTS": "EVENTS",
   "events": "Eventos",
   "viewEvents": "Ver eventos",
-  "createEvent": "Crear evento",
-  "settings": "Configuración",
+  "myEvents": "Mis eventos",
+  "upcomingEvents": "Próximos eventos",
+  "viewDetails": "Ver detalles",
+  "buyTickets": "Comprar tickets",
+
+  "GALLERY": "GALLERY",
+  "gallery": "Galería",
+  "like": "Me gusta",
+  "download": "Descargar",
+
+  "HOME": "HOME",
+  "welcome": "Bienvenido {{name}}",
+  "weAreGlad": "Nos alegra tenerte aquí.",
+
+  "PROFILE": "PROFILE",
   "profile": "Perfil",
-  "logout": "Cerrar sesión",
+  "accountSettings": "Configuración de la Cuenta",
+  "account": "Cuenta",
+  "password": "Contraseña",
+  "security": "Seguridad",
+  "application": "Aplicación",
+  "notifications": "Notificaciones",
+
+  "REVIEWS": "REVIEWS",
+
+  "SETTINGS": "SETTINGS",
+  "settings": "Configuración",
+  "selectAMenuOption": "Selecciona una opción del menú para cambiar tu configuración.",
+  "language": "Idioma",
+  "selectLanguage": "Selecciona un idioma",
+  "theme": "Tema",
+  "selectTheme": "Selecciona un tema",
+
+  "TICKETS": "TICKETS",
+  "tickets": "Tickets",
+  "addToCart": "Añadir al carrito",
+  "ticketAdded": "Ticket añadido",
+  "ticketAddedToCart": "Ticket añadido al carrito",
+  "purchaseSummary": "Resumen de la compra",
+  "total": "Total",
+  "confirmOrder": "Confirmar Pedido",
+  "areYouSureYouWantToCancelTheOrder": "¿Está seguro de que desea cancelar el pedido?",
+  "areYouSureYouWantToConfirmTheOrder": "¿Está seguro de que desea confirmar el pedido?",
+
   "search": "Buscar",
-  "welcomeMessage": "Bienvenido {{name}}",
-  "gladMessage": "Nos alegra tenerte aquí.",
-  "allrightsreserved": "Todos los derechos reservados",
+  "save": "Guardar",
+  "cancel": "Cancelar",
   "loading": "Cargando...",
+  "yes": "Sí",
+  "no": "No",
+
+  "name": "Nombre",
+  "surname": "Apellido",
+  "email": "Correo electrónico",
+  "phone": "Teléfono",
+
+  "logout": "Cerrar sesión",
+
   "eventImageAlt": "Imagen del evento",
-  "myEvents": "Mis eventos"
+  "allrightsreserved": "Todos los derechos reservados.",
+
+  "": ""
 }

@@ -8,6 +8,7 @@ import {
   XIcon,
 } from "@primer/octicons-react";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 interface ImageModalProps {
   image: {
@@ -21,6 +22,7 @@ interface ImageModalProps {
 }
 
 export const GalleryImage: React.FC<ImageModalProps> = ({ image, onClose }) => {
+  const { t } = useTranslation();
   const [liked, setLiked] = useState(false);
 
   const toggleLike = () => {
@@ -73,14 +75,14 @@ export const GalleryImage: React.FC<ImageModalProps> = ({ image, onClose }) => {
             ) : (
               <HeartIcon className="w-6 h-6 mr-1" />
             )}
-            Me gusta
+            {t("like")}
           </button>
           <button
             onClick={downloadImage}
             className="flex items-center text-blue-500 hover:text-blue-700 transition"
           >
             <DownloadIcon className="w-6 h-6 mr-1" />
-            Descargar
+            {t("download")}
           </button>
         </div>
       </div>
