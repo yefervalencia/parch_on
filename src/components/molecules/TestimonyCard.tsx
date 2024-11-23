@@ -1,6 +1,8 @@
-import React from 'react';
-import Paragraph from '../atoms/Paragraph';
-import CardText from '../atoms/CardText';
+"use client";
+
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { Paragraph, CardText } from "@/components";
 
 type TestimonyCardProps = {
   user: string;
@@ -8,14 +10,21 @@ type TestimonyCardProps = {
   location: string;
 };
 
-const TestimonyCard: React.FC<TestimonyCardProps> = ({ user, feedback, location }) => {
+export const TestimonyCard: React.FC<TestimonyCardProps> = ({
+  user,
+  feedback,
+  location,
+}) => {
+  const { t } = useTranslation();
   return (
     <div className="testimony-card">
-      <Paragraph className="user">"{user}"</Paragraph>
+      <Paragraph className="user">{user}</Paragraph>
       <Paragraph className="feedback">“{feedback}”</Paragraph>
-      <CardText label="Lugares Visitados" value={location} className="location" />
+      <CardText
+        label={t("sitesVisited")}
+        value={location}
+        className="location"
+      />
     </div>
   );
 };
-
-export default TestimonyCard;

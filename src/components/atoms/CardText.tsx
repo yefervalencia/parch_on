@@ -1,4 +1,5 @@
-import React from 'react';
+"use client";
+import React from "react";
 
 type CardTextProps = {
   label: string;
@@ -6,10 +7,12 @@ type CardTextProps = {
   className?: string;
 };
 
-const CardText: React.FC<CardTextProps> = ({ label, value, className }) => (
+export const CardText: React.FC<CardTextProps> = ({
+  label,
+  value,
+  className,
+}) => (
   <p className={className}>
     <strong>{label}</strong>: {value}
   </p>
 );
-
-export default CardText;
