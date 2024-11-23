@@ -61,10 +61,61 @@
   "email": "Correo electrónico",
   "phone": "Teléfono",
 
+  "login": "Iniciar sesión",
+  "signup": "Registrarse",
   "logout": "Cerrar sesión",
 
   "eventImageAlt": "Imagen del evento",
   "allrightsreserved": "Todos los derechos reservados.",
+
+  "ROOT": "/",
+  "getReadyToLiveUniqueMoments": "Prepárate para vivir momentos únicos en los spots más cool de Manizales. ¡La ciudad te espera!",
+  "letsDoIt": "Comenzar",
+  "in": "En",
+  "joyPrevails": "Ven y sales",
+
+  "ABOUT": "ABOUT",
+  "about": "Nosotros",
+  "aboutUs": "Nosotros",
+  "parchonIsAPlatform": "ParchOn es una plataforma dedicada a conectar a los habitantes y visitantes de la ciudad con los mejores lugares y eventos urbanos. Nuestro objetivo es facilitar el acceso a actividades interesantes, desde conciertos y exposiciones hasta eventos deportivos, culturales y recreativos, para que todos puedan disfrutar de lo mejor de la ciudad.",
+  "systemsEngineer": "Ingeniero en Sistemas",
+  "meetOurTeam": "Conoce a nuestro equipo",
+
+  "CONTACT": "CONTACT",
+  "contact": "Contacto",
+  "contactUs": "Contáctanos",
+  "weAreHereToHelpYou": "Estamos aquí para ayudarte, envíanos un mensaje.",
+  "message": "Mensaje",
+  "send": "Enviar",
+
+  "TESTIMONIAL": "TESTIMONIAL",
+  "testimonial": "Testimonio",
+  "testimonialsFromOurUsers": "Testimonials from our users",
+  "findOutWhatTheySayAbout": "Conoce lo que dicen sobre la app y los lugares que han visitado.",
+  "sitesVisited": "Lugares visitados",
+
+  "FAQ": "FAQ",
+  "questions": "Preguntas",
+  "howCanIRegister": "¿Cómo puedo registrarme en la plataforma?",
+  "youCanRegister": "Puedes registrarte haciendo clic en el botón “Registrarse” en la esquina superior derecha y completando el formulario de registro.",
+  "canIChangeMyPassword": "¿Puedo cambiar mi contraseña?",
+  "yesYouCanChangeYourPassword": "Sí, puedes cambiar tu contraseña desde tu perfil en la sección de ajustes.",
+  "howDoIContactSupport": "¿Cómo contacto con soporte?",
+  "youCanContactSupportBy": "Puedes contactar con soporte enviando un mensaje a nuestro correo electrónico o a través del formulario en la página de contacto.",
+  "isThereAParchonMobile": "¿Hay una aplicación móvil de ParchOn?",
+  "noWeAreWorkingToBring": "No, Estamos trabajando para llevar a ParchOn a dispositivos móviles.",
+
+  "LOGIN": "LOGIN",
+  "recentLogins": "Inicios de sesión recientes",
+  "clickOnAPhotoOrAddAnAccount": "Haz clic en una foto o agrega una cuenta.",
+
+  "REGISTER": "REGISTER",
+  "register": "Registro",
+  "confirmPassword": "Confirmar contraseña",
+  "chooseGender": "Seleccione un género",
+  "birthDate": "Fecha de nacimiento",
+  "chooseCity": "Seleccione una ciudad",
+  "loadCities": "Cargando ciudades...",
 
   "": ""
 }

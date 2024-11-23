@@ -1,22 +1,31 @@
 "use client";
 
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import i18n from "@/app/i18n"; // Importa la configuración de i18next
 import Image from "next/image";
 import Link from "next/link";
+import { LanguageList } from "@/components";
 import "./Navbar.css";
 
-const navLinks = [
-  { href: "/about", text: "Nosotros" },
-  { href: "/contact", text: "Contacto" },
-  { href: "/testimonies", text: "Testimonio" },
-  { href: "/FAQ", text: "Preguntas frecuentes" },
-];
-
-const authLinks = [
-  { href: "/login", text: "Iniciar sesión", className: "loginBtn" },
-  { href: "/register", text: "Registrarse", className: "registerBtn" },
-];
-
 export const Navbar = () => {
+  const { t } = useTranslation();
+  const [showLanguages, setShowLanguages] = useState(false);
+
+  const navLinks = [
+    { href: "/about", text: t("about") },
+    { href: "/contact", text: t("contact") },
+    { href: "/testimonies", text: t("testimonial") },
+    { href: "/FAQ", text: t("questions") },
+  ];
+
+  const authLinks = [
+    { href: "/login", text: t("login"), className: "loginBtn" },
+    { href: "/register", text: t("signup"), className: "registerBtn" },
+  ];
+
+  const currentLanguage = i18n.language;
+
   return (
     <nav className="navbar" suppressHydrationWarning>
       <div className="logo">
@@ -46,6 +55,21 @@ export const Navbar = () => {
             <button className={className}>{text}</button>
           </Link>
         ))}
+      </div>
+
+      <div className="languageSelector relative">
+        <div
+          className="flex items-center cursor-pointer"
+          onClick={() => setShowLanguages(!showLanguages)}
+        >
+          {/* <span className={`flag-icon flag-icon-${currentLanguage}`} /> */}
+          <span className="ml-2 capitalize">{currentLanguage}</span>
+        </div>
+        {showLanguages && (
+          <div className="absolute right-0 mt-2 bg-white shadow-lg rounded-md">
+            <LanguageList />
+          </div>
+        )}
       </div>
     </nav>
   );

@@ -9,7 +9,10 @@ export const Footer = () => {
   return (
     <div className="cont-footer">
       <footer className="footer-out-session">
-        <p>© 2024 ParchOn. {t("allrightsreserved")} {/* Traducción del mensaje del footer */}.</p>
+        <p>
+          © 2024 ParchOn. {t("allrightsreserved")}{" "}
+          {/* Traducción del mensaje del footer */}
+        </p>
       </footer>
     </div>
   );

@@ -5,7 +5,7 @@
   justify-content: center;
   padding: 50px;
   background-color: #f9f9f9;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 .about-section {
@@ -34,11 +34,11 @@ h1 {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  background-image: url('/public/image_2.jpg');
+  background-image: url("/public/image_2.jpg");
   background-size: cover;
   background-position: center;
   background-color: transparent;
-  border: 2px solid #fff; 
+  border: 2px solid #fff;
 }
 
 .about-text p {
@@ -74,7 +74,7 @@ h2 {
   text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
 }
 
 .team-member .team-member-image {
@@ -85,22 +85,22 @@ h2 {
   background-size: cover;
   background-position: center;
   background-color: transparent;
-  border: 2px solid #fff; 
+  border: 2px solid #fff;
   display: flex;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
 }
 
 .team-member:nth-child(1) .team-member-image {
-  background-image: url('/public/image_2.jpg');
+  background-image: url("/public/image_2.jpg");
 }
 
 .team-member:nth-child(2) .team-member-image {
-  background-image: url('/public/image_2.jpg'); 
+  background-image: url("/public/image_2.jpg");
 }
 
 .team-member:nth-child(3) .team-member-image {
-  background-image: url('/public/image_2.jpg');
+  background-image: url("/public/image_2.jpg");
 }
 
 .team-member h3 {

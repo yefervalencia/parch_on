@@ -61,10 +61,15 @@
   "email": "Courriel",
   "phone": "Téléphone",
 
+  "login": "S'identifier",
+  "signup": "S'inscrire",
   "logout": "Se déconnecter",
 
   "eventImageAlt": "Image de l'événement",
   "allrightsreserved": "Tous droits réservés.",
+
+  "in": "À",
+  "joyPrevails": "Le bonheur s'exhale",
 
   "": ""
 }

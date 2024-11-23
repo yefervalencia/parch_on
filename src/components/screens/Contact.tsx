@@ -1,11 +1,12 @@
 "use client";
 
-import "./Contact.css";
-
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { contactSchema } from "@/validators/contactSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+
+import "./Contact.css";
 
 type Inputs = {
   name: string;
@@ -14,15 +15,17 @@ type Inputs = {
 };
 
 export const Contact = () => {
+  const { t } = useTranslation();
+
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm<Inputs>({
-    resolver: zodResolver(contactSchema)
+    resolver: zodResolver(contactSchema),
   });
-  
+
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     const body = {
       user: data.name,
@@ -35,40 +38,38 @@ export const Contact = () => {
   return (
     <div className="contact-page">
       <div className="contact-section">
-        <h2 className="contact-title">Contáctanos</h2>
-        <p className="subtitle">
-          Estamos aquí para ayudarte, envíanos un mensaje.
-        </p>
+        <h2 className="contact-title">{t("contactUs")}</h2>
+        <p className="subtitle">{t("weAreHereToHelpYou")}</p>
 
         <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="name">Nombre:</label>
+          <label htmlFor="name">{t("name")}</label>
           <input
             type="text"
             id="name"
             required
-            placeholder="Nombre"
+            placeholder={t("name")}
             {...register("name")}
           />
 
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">{t("email")}</label>
           <input
             type="email"
             id="email"
             required
-            placeholder="Correo electrónico"
+            placeholder={t("email")}
             {...register("email")}
           />
 
-          <label htmlFor="message">Mensaje:</label>
+          <label htmlFor="message">{t("message")}</label>
           <textarea
             id="message"
             required
-            placeholder="Mensaje"
+            placeholder={t("message")}
             {...register("message")}
           ></textarea>
 
           <button type="submit" className="send-input">
-            Enviar
+            {t("send")}
           </button>
         </form>
       </div>
