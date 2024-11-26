@@ -1,14 +1,10 @@
-"use client";
+import { Theme } from "@/components";
+import { Metadata } from "next";
 
-import { useTranslation } from "react-i18next";
-
-const ThemeSettings = () => {
-  const { t } = useTranslation();
-  return (
-    <div>
-      <h1 className="text-2xl font-bold mb-4">{t("selectTheme")}</h1>
-    </div>
-  );
+export const metadata: Metadata = {
+  title: "Theme",
+  description: "Choose your theme preferred",
 };
-
-export default ThemeSettings;
+export default function ThemePage() {
+  return <Theme />;
+}

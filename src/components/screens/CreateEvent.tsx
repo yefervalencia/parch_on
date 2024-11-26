@@ -4,6 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { eventSchema } from "@/validators/newEventSchema"; // Asegúrate de definir el esquema de validación correspondiente.
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   getCategories,
   getPlaces,
@@ -11,6 +12,7 @@ import {
   getUserByCookie,
 } from "@/libs/api"; // Ajusta tus funciones API
 import { useRouter } from "next/navigation";
+import { TO } from "country-flag-icons/react/3x2";
 
 type Inputs = {
   event: string;
@@ -28,6 +30,7 @@ type Inputs = {
 
 export const CreateEvent = () => {
   const router = useRouter();
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -85,7 +88,9 @@ export const CreateEvent = () => {
 
       if (createdEvent && hasTickets) {
         console.log("Evento creado, redirigiendo para crear tickets...");
-        router.push(`/create-tickets?eventId=${createdEvent.id}&ticketTypes=${ticketCount}`);
+        router.push(
+          `/create-tickets?eventId=${createdEvent.id}&ticketTypes=${ticketCount}`
+        );
       } else {
         router.push(`/events`);
       }
@@ -96,19 +101,19 @@ export const CreateEvent = () => {
 
   return (
     <div>
-      <h1>Crear Evento</h1>
+      <h1>{t("createEvent")}</h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="max-w-lg mx-auto p-6 bg-white shadow-md rounded"
       >
         <div className="mb-4">
           <label htmlFor="event" className="block text-gray-700">
-            Nombre del evento
+            {t("eventName")}
           </label>
           <input
             type="text"
             id="event"
-            placeholder="nombre del evento"
+            placeholder={t("eventName")}
             {...register("event")}
             className="mt-1 block w-full border border-gray-300 rounded p-2 focus:outline-none focus:ring focus:border-blue-300 text-black"
           />
@@ -119,7 +124,7 @@ export const CreateEvent = () => {
 
         <div className="mb-4">
           <label htmlFor="description" className="block text-gray-700">
-            Descripción
+            {t("description")}
           </label>
           <textarea
             id="description"
@@ -133,7 +138,7 @@ export const CreateEvent = () => {
 
         <div className="mb-4">
           <label htmlFor="details" className="block text-gray-700">
-            detalles
+            {t("details")}
           </label>
           <textarea
             id="details"
@@ -147,7 +152,7 @@ export const CreateEvent = () => {
 
         <div className="mb-4">
           <label htmlFor="date" className="block text-gray-700">
-            Fecha
+            {t("date")}
           </label>
           <input
             type="date"
@@ -163,7 +168,7 @@ export const CreateEvent = () => {
 
         <div className="mb-4">
           <label htmlFor="time" className="block text-gray-700">
-            Hora
+            {t("hour")}
           </label>
           <input
             type="time"
@@ -179,12 +184,12 @@ export const CreateEvent = () => {
 
         <div className="mb-4">
           <label htmlFor="image" className="block text-gray-700">
-            Imagen
+            {t("image")}
           </label>
           <input
             type="text"
             id="image"
-            placeholder="imagen del evento"
+            placeholder={t("imageUrl")}
             {...register("image")}
             className="text-black mt-1 block w-full border border-gray-300 rounded p-2 focus:outline-none focus:ring focus:border-blue-300"
           />
@@ -196,7 +201,7 @@ export const CreateEvent = () => {
         {/* Otros campos del formulario */}
         <div className="mb-4">
           <label htmlFor="capacity" className="block text-gray-700">
-            Capacidad
+            {t("capacity")}
           </label>
           <input
             type="number"
@@ -212,12 +217,12 @@ export const CreateEvent = () => {
         <div className="text-black mb-4">
           {errors.id_place && <span>{errors.id_place.message}</span>}
           <label htmlFor="id_place" className="block text-gray-700">
-            Lugar
+            {t("place")}
           </label>
           <select {...register("id_place")}>
-            <option value="">Seleccione un lugar</option>
+            <option value="">{t("choosePlace")}</option>
             {places === null || places.length === 0 ? (
-              <option disabled>Cargando lugares...</option>
+              <option disabled>{t("loadingPlaces")}</option>
             ) : (
               places.map((place) => (
                 <option key={place.id} value={place.id.toString()}>
@@ -231,12 +236,12 @@ export const CreateEvent = () => {
         <div className="text-black mb-4">
           {errors.id_category && <span>{errors.id_category.message}</span>}
           <label htmlFor="id_category" className="block text-gray-700">
-            Categoria
+            {t("category")}
           </label>
           <select {...register("id_category")}>
-            <option value="">Seleccione una categoria</option>
+            <option value="">{t("chooseCategory")}</option>
             {categories === null || categories.length === 0 ? (
-              <option disabled>Cargando categorias...</option>
+              <option disabled>{t("loadingCategories")}</option>
             ) : (
               categories.map((category) => (
                 <option key={category.id} value={category.id.toString()}>
@@ -249,7 +254,7 @@ export const CreateEvent = () => {
 
         <div className="mb-4">
           <label htmlFor="hasTickets" className="block text-gray-700">
-            ¿El evento tiene tickets?
+            {t("eventNeedTickets")}
           </label>
           <input
             type="checkbox"
@@ -262,7 +267,7 @@ export const CreateEvent = () => {
         {hasTickets && (
           <div className="mb-4">
             <label htmlFor="ticketTypes" className="block text-gray-700">
-              cantidad de tipos de tickets
+              {t("quantity")}
             </label>
             <input
               type="number"
@@ -275,7 +280,7 @@ export const CreateEvent = () => {
           type="submit"
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none"
         >
-          Crear Evento
+          {t("createEvent")}
         </button>
       </form>
     </div>
