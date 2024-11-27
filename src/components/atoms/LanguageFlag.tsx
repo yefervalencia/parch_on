@@ -2,7 +2,7 @@
 
 import React from "react";
 import clsx from "clsx";
-import { US, ES, FR } from "country-flag-icons/react/3x2"; // Asegúrate de instalar esta librería
+import { US, MX, FR } from "country-flag-icons/react/3x2"; // Asegúrate de instalar esta librería
 
 interface LanguageFlagProps {
   code: string;
@@ -16,7 +16,7 @@ const flagComponents: Record<
   React.FC<{ title: string; className?: string }>
 > = {
   en: US,
-  es: ES,
+  es: MX,
   fr: FR,
 };
 

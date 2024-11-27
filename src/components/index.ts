@@ -31,6 +31,8 @@ export * from './molecules/GalleryImage';
 export * from './molecules/SettingsMenu';
 export * from './molecules/Ticket';
 export * from './molecules/TicketModal';
+export * from './molecules/AddGallery';
+export * from './molecules/EventSelector';
 //// ORGANISMS
 export * from './organisms/TicketList';
 //// SCREENS
@@ -51,3 +53,4 @@ export * from './screens/CreateEvent';
 export * from './atoms/AlertIcon';
 
 export * from './molecules/AlertModal';
+export * from './molecules/Modal';

@@ -30,6 +30,13 @@
   "gallery": "Galerie",
   "like": "J'aime",
   "download": "Télécharger",
+  "upload": "Téléverser",
+  "chooseEvent": "Choisir l'événement",
+  "selectImage": "Sélectionner une image",
+  "typeEventName": "Saisir le nom de l'événement",
+  "addNewPhoto": "Ajouter une nouvelle photo",
+  "searchEvents": "Rechercher des événements...",
+  "selectedEvent": "Événement sélectionné",
 
   "HOME": "HOME",
   "welcome": "Bienvenue {{name}}",
