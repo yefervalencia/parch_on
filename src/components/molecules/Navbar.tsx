@@ -6,7 +6,17 @@ import i18n from "@/app/i18n"; // Importa la configuración de i18next
 import Image from "next/image";
 import Link from "next/link";
 import { LanguageList } from "@/components";
+import { US, MX, FR } from "country-flag-icons/react/3x2";
 import "./Navbar.css";
+
+const flagComponents: Record<
+  string,
+  React.FC<{ title?: string; className?: string }>
+> = {
+  en: US,
+  es: MX,
+  fr: FR,
+};
 
 export const Navbar = () => {
   const { t } = useTranslation();
@@ -25,6 +35,7 @@ export const Navbar = () => {
   ];
 
   const currentLanguage = i18n.language;
+  const FlagComponent = flagComponents[currentLanguage];
 
   return (
     <nav className="navbar" suppressHydrationWarning>
@@ -62,7 +73,7 @@ export const Navbar = () => {
           className="flex items-center cursor-pointer"
           onClick={() => setShowLanguages(!showLanguages)}
         >
-          {/* <span className={`flag-icon flag-icon-${currentLanguage}`} /> */}
+          {FlagComponent && <FlagComponent className="w-6 h-4" />}
           <span className="ml-2 capitalize">{currentLanguage}</span>
         </div>
         {showLanguages && (

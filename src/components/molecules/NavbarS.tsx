@@ -5,32 +5,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { SearchIcon } from "@primer/octicons-react";
 import { DropDown } from "@/components";
-import { getUserByCookie, logoutUser } from "@/libs/api";
+import { getUserByCookie, logoutUser, getRoleByCookie2 } from "@/libs/api";
 import { useTranslation } from "react-i18next";
 
 import "./NavbarS.css";
 import { useRouter } from "next/navigation";
 
-// Interfaz para el payload del JWT
-interface JwtPayload {
-  id: string;
-  email: string;
-  name: string;
-  lastname: string;
-  role: string;
-}
-
 export const NavbarS = () => {
   const { t } = useTranslation();
   const router = useRouter();
-  // State para controlar si el menú desplegable está abierto
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [userName, setUserName] = useState("");
 
-  // Función para alternar el menú desplegable
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
+  const [userName, setUserName] = useState("");
+  const [role, setRole] = useState<string | null>(null);
 
   // Función para obtener el nombre del usuario usando el ID extraído del token
   useEffect(() => {
@@ -45,6 +31,9 @@ export const NavbarS = () => {
           const lastName = userData.lastname.split(" ")[0];
           setUserName(`${firstName} ${lastName}`);
         }
+
+        const userRole = await getRoleByCookie2();
+        setRole(userRole.role);
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
@@ -81,9 +70,11 @@ export const NavbarS = () => {
           principal="events"
           link="/events"
           items={[
-            { href: "/events", text: "viewEvents" },
-            { href: "/create-event", text: "createEvent" },
-            { href: "/my-events", text: "myEvents" },
+            { href: "/events", text: t("viewEvents") },
+            ...(role === "Administrator"
+              ? [{ href: "/create-event", text: t("createEvent") }]
+              : []),
+            { href: "/my-events", text: t("myEvents") },
           ]}
         />
       </ul>

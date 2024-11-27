@@ -32,7 +32,7 @@ export const GalleryImage: React.FC<ImageModalProps> = ({ image, onClose }) => {
   const downloadImage = () => {
     const link = document.createElement("a");
     link.href = image.url;
-    link.download = "image.jpg";
+    link.download = "ParchOn-image.jpg";
     link.click();
   };
 

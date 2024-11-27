@@ -203,6 +203,25 @@ export const getRoleByCookie = async (token: string | undefined) => {
   }
 };
 
+export const getRoleByCookie2 = async () => {
+  try {
+    const response = await fetch(`${API}/role`, {
+      method: "POST",
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(`Error: ${errorData.message}`);
+    }
+
+    const rawData = await response.json();
+    return rawData;
+  } catch (error) {
+    console.error('Error al obtener el rol:', error);
+    return { role: "Guest" };
+  }
+};
 
 export const getEvents = async () => {
   try {
@@ -236,7 +255,7 @@ export const getCities = async () => {
 
 export const getEventCard = async () => {
   try {
-    const response = await fetch(`${API}/events/cards`);
+    const response = await fetch(`${API}/events-cards`);
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -251,7 +270,7 @@ export const getEventCard = async () => {
 
 export const getEventDetails = async (id: string) => {
   try {
-    const response = await fetch(`${API}/events/details/${id}`);
+    const response = await fetch(`${API}/events-details/${id}`);
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -296,4 +315,63 @@ export const updateUserData = async (userId: number, updatedUser: any) => {
     body: JSON.stringify(updatedUser),
   })
     .then(res => { console.log(res); return res.json() });
+};
+
+export const createImage = async () => {
+  try {
+    const response = await fetch(`${API}/images`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const rawData = await response.json();
+    return rawData;
+  } catch (error) {
+    return null;
+  }
+}
+
+export const uploadImage = async (formData: FormData): Promise<any> => {
+  try {
+    const response = await fetch(`${API}/images`, {
+      method: "POST",
+      body: formData,
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error uploading image:", error);
+    throw error;
+  }
+};
+
+export const getImagesFullData = async () => {
+  try {
+    const response = await fetch(`${API}/images-full`, {
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error uploading image:", error);
+    throw error;
+  }
 };
