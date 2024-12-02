@@ -64,7 +64,7 @@ export async function middleware(request: NextRequest) {
 
     // Directly check if the current path is allowed for the user's role
     const isAuthorized = routesByRole[role].some((route) =>
-        request.nextUrl.pathname.startsWith(route)
+        request.nextUrl.pathname.endsWith(route)
     );
 
     // Implement hierarchical access control
