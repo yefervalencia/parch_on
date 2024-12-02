@@ -18,6 +18,8 @@ const routesByRole: Record<Role, string[]> = {
         '/reviews',
         '/settings',
         '/tickets',
+        '/language',
+        '/theme',
     ],
     User: [
         '/my-events',
@@ -29,6 +31,8 @@ const routesByRole: Record<Role, string[]> = {
         '/reviews',
         '/settings',
         '/tickets',
+        '/language',
+        '/theme',
     ],
     Guest: [
         '/',
