@@ -42,7 +42,7 @@ export const Ticket: React.FC<TicketProps> = ({
 
   return (
     <div
-      className={`flex flex-col p-6 rounded-lg shadow-lg text-white ${color}`}
+      className={`flex flex-col p-6 rounded-lg shadow-lg text-white bg-gray-500`}
     >
       <h2 className="text-4xl font-semibold mb-2">{tier}</h2>
       <p className="text-lg font-bold mb-2">${Number(price).toFixed(2)}</p>

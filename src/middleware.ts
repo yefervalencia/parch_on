@@ -12,6 +12,7 @@ const routesByRole: Record<Role, string[]> = {
         '/protected',
         '/agenda',
         '/events',
+        '/events/:path*',
         '/gallery',
         '/home',
         '/profile',
@@ -25,6 +26,7 @@ const routesByRole: Record<Role, string[]> = {
         '/my-events',
         '/agenda',
         '/events',
+        '/events/:path*',
         '/gallery',
         '/home',
         '/profile',
@@ -68,7 +70,7 @@ export async function middleware(request: NextRequest) {
 
     // Directly check if the current path is allowed for the user's role
     const isAuthorized = routesByRole[role].some((route) =>
-        request.nextUrl.pathname.endsWith(route)
+        request.nextUrl.pathname.includes(route)
     );
 
     // Implement hierarchical access control
