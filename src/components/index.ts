@@ -19,6 +19,7 @@ export * from './screens/Main';
 export * from './screens/About';
 export * from './screens/Testimonial';
 export * from './screens/FAQ';
+export * from './screens/Protected';
 
 // USER
 //// ATOMS

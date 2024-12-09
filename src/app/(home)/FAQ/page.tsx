@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { FAQ } from "@/components";
 
-export const medatada: Metadata = {
+export const metadata: Metadata = {
   title: "FAQ",
   description: "Questions about ParchOn",
 };

@@ -1,14 +1,11 @@
-export const ProtectedPage = () => {
-  return (
-    <>
-      <div>
-        <h1>Protected Content</h1>
-        <p>
-          This page is protected and only accessible by authenticated users.
-        </p>
-      </div>
-    </>
-  );
+import { Metadata } from "next";
+import { Protected } from "@/components";
+
+export const metadata: Metadata = {
+  title: "Protected",
+  description: "page is protected and only accessible by authenticated users",
 };
 
-export default ProtectedPage;
+export default function ProtectedPage() {
+  return <Protected />;
+}
