@@ -20,6 +20,10 @@ export * from './screens/About';
 export * from './screens/Testimonial';
 export * from './screens/FAQ';
 export * from './screens/Protected';
+export * from './screens/MyAgenda';
+export * from './screens/MyEvents';
+export * from './screens/MyReviews';
+export * from './screens/Search';
 
 // USER
 //// ATOMS
